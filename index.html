@@ -1,0 +1,1993 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Inspiration Cloud V2 - interactieve mockup, fase 1.">
+<style>
+:root{color-scheme:light dark}
+[hidden]{display:none!important}
+img{max-width:100%}
+</style>
+<title>Inspiration Cloud V2 Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600;700&display=swap">
+
+<style>
+:root{
+  --ground:#F1F4F0;
+  --surface:#FFFFFF;
+  --surface-2:#F6F8F5;
+  --surface-3:#EDF1EA;
+  --line:#E1E6DF;
+  --line-2:#C7CFC5;
+  --ink:#131A17;
+  --ink-2:#4A554E;
+  --ink-3:#656F68;
+  --ink-4:#6C7870;
+  --accent:#1F4436;
+  --accent-2:#2C5D49;
+  --accent-soft:#E5EEE8;
+  --accent-line:#BCD2C6;
+  --signal:#8A5E17;
+  --signal-soft:#F7EFDD;
+  --signal-line:#E0CBA0;
+  --ok:#2C6641;
+  --ok-soft:#E2EEE6;
+  --warn:#8C4A2F;
+  --warn-soft:#F7E9E2;
+  --sh-1:0 1px 2px rgba(19,26,23,.05);
+  --sh-2:0 4px 14px -4px rgba(19,26,23,.12),0 1px 3px rgba(19,26,23,.05);
+  --sh-pop:0 18px 44px -14px rgba(19,26,23,.30),0 2px 6px rgba(19,26,23,.07);
+  --r-xs:3px; --r-sm:5px; --r-md:8px; --r-lg:12px;
+  --on-accent:#FFFFFF;
+  --on-ok:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1210; --surface:#171C19; --surface-2:#1D2320; --surface-3:#232A26;
+    --line:#2A322D; --line-2:#414B45;
+    --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#859089; --ink-4:#7A877F;
+    --accent:#7FB79D; --accent-2:#96C7AF; --accent-soft:#182B23; --accent-line:#2E4A3C;
+    --signal:#D3A45F; --signal-soft:#2C2418; --signal-line:#4A3B21;
+    --ok:#79B48F; --ok-soft:#18251D; --warn:#CB8A70; --warn-soft:#2A1D17;
+    --sh-1:0 1px 2px rgba(0,0,0,.30);
+    --sh-2:0 4px 14px -4px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.35);
+    --sh-pop:0 18px 44px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.4);
+  --on-accent:#0C120F;
+  --on-ok:#0C120F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1210; --surface:#171C19; --surface-2:#1D2320; --surface-3:#232A26;
+  --line:#2A322D; --line-2:#414B45;
+  --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#859089; --ink-4:#7A877F;
+  --accent:#7FB79D; --accent-2:#96C7AF; --accent-soft:#182B23; --accent-line:#2E4A3C;
+  --signal:#D3A45F; --signal-soft:#2C2418; --signal-line:#4A3B21;
+  --ok:#79B48F; --ok-soft:#18251D; --warn:#CB8A70; --warn-soft:#2A1D17;
+  --sh-1:0 1px 2px rgba(0,0,0,.30);
+  --sh-2:0 4px 14px -4px rgba(0,0,0,.55),0 1px 3px rgba(0,0,0,.35);
+  --sh-pop:0 18px 44px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.4);
+  --on-accent:#0C120F;
+  --on-ok:#0C120F;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;
+  font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.srf{font-family:'Newsreader',Georgia,serif;font-weight:500;letter-spacing:-.014em}
+svg.ic{width:17px;height:17px;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+svg.ic.sm{width:14px;height:14px}
+svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ============ demo strip ============ */
+.demobar{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;gap:14px;
+  padding:0 16px;height:44px;
+  background:var(--surface);border-bottom:1px solid var(--line);
+}
+.demobar .dl{
+  display:flex;align-items:baseline;gap:8px;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);white-space:nowrap;
+}
+.demobar .dl b{color:var(--ink-2);font-weight:700}
+.scrnav{display:flex;gap:2px;overflow-x:auto;margin-left:auto;scrollbar-width:none}
+.scrnav::-webkit-scrollbar{display:none}
+.scrnav button{
+  font:inherit;font-size:12px;font-weight:500;color:var(--ink-3);
+  background:none;border:0;padding:5px 10px;border-radius:var(--r-sm);cursor:pointer;
+  white-space:nowrap;display:flex;align-items:center;gap:6px;
+}
+.scrnav button .n{
+  font-size:9.5px;font-weight:700;color:var(--ink-4);letter-spacing:.06em;
+  font-variant-numeric:tabular-nums;
+}
+.scrnav button:hover{background:var(--surface-2);color:var(--ink-2)}
+.scrnav button[aria-current="true"]{background:var(--accent);color:var(--on-accent)}
+.scrnav button[aria-current="true"] .n{color:var(--on-accent);opacity:.62}
+
+/* ============ app shell ============ */
+.app{display:grid;grid-template-columns:246px minmax(0,1fr);min-height:calc(100vh - 44px)}
+@media (max-width:900px){.app{grid-template-columns:1fr}.sb{display:none}}
+
+/* ---- sidebar ---- */
+.sb{
+  background:var(--surface);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;padding:0 0 10px;
+  position:sticky;top:44px;height:calc(100vh - 44px);overflow-y:auto;
+}
+.brand{display:flex;align-items:center;gap:9px;padding:16px 16px 13px}
+.brand .mk{
+  width:26px;height:26px;border-radius:7px;flex:0 0 auto;
+  background:linear-gradient(150deg,var(--accent-2),var(--accent));
+  display:grid;place-items:center;color:var(--on-accent);
+  box-shadow:0 1px 0 rgba(255,255,255,.28) inset;
+}
+.brand .mk svg{width:15px;height:15px;stroke-width:1.9}
+.brand .bn{font-size:14.5px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.brand .bn i{font-style:normal;font-weight:400;color:var(--ink-4)}
+
+.tenant{
+  margin:0 12px 12px;padding:9px 10px;border:1px solid var(--line);border-radius:var(--r-md);
+  display:flex;align-items:center;gap:9px;cursor:pointer;background:var(--surface);
+}
+.tenant:hover{border-color:var(--line-2);background:var(--surface-2)}
+.tenant .av{
+  width:28px;height:28px;border-radius:6px;flex:0 0 auto;display:grid;place-items:center;
+  background:linear-gradient(160deg,#7FA778,#3E6B47);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.02em;
+}
+.tenant .tt{min-width:0;flex:1}
+.tenant .tt{display:flex;flex-direction:column}
+.tenant .t1{display:block;font-size:12.5px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tenant .t2{display:block;font-size:10.5px;color:var(--ink-4);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tenant svg{color:var(--ink-4)}
+
+.newbtn{margin:0 12px 4px;position:relative}
+.btn{
+  font:inherit;cursor:pointer;border:1px solid transparent;border-radius:var(--r-sm);
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-size:12.5px;font-weight:600;padding:6px 11px;color:var(--ink-2);
+  background:var(--surface);border-color:var(--line-2);transition:background .12s,border-color .12s,color .12s;
+}
+.btn:hover{background:var(--surface-2);color:var(--ink);border-color:var(--ink-4)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent);box-shadow:var(--sh-1)}
+.btn.pri:hover{background:var(--accent-2);border-color:var(--accent-2);color:var(--on-accent)}
+.btn.gho{background:transparent;border-color:transparent;color:var(--ink-3)}
+.btn.gho:hover{background:var(--surface-2);color:var(--ink-2);border-color:transparent}
+.btn.blk{width:100%;justify-content:center;padding:8px 11px;font-size:13px}
+.btn.sm{font-size:11.5px;padding:4px 9px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+.navgrp{padding:14px 16px 5px;font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4)}
+.nav{display:flex;flex-direction:column;gap:1px;padding:0 8px}
+.nav a{
+  display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:var(--r-sm);
+  color:var(--ink-2);text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;
+}
+.nav a:hover{background:var(--surface-2);color:var(--ink)}
+.nav a svg{color:var(--ink-4)}
+.nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.nav a[aria-current="page"] svg{color:var(--accent)}
+.nav a .ct{
+  margin-left:auto;font-size:10.5px;font-weight:700;background:var(--accent);color:var(--on-accent);
+  min-width:18px;text-align:center;border-radius:999px;padding:0 5px;line-height:17px;
+  font-variant-numeric:tabular-nums;
+}
+.nav a.soon{color:var(--ink-4);cursor:default}
+.nav a.soon:hover{background:transparent;color:var(--ink-4)}
+.nav a.soon svg{opacity:.55}
+.fase{
+  margin-left:auto;font-size:9px;font-weight:700;letter-spacing:.07em;color:var(--ink-4);
+  border:1px solid var(--line);border-radius:999px;padding:1px 6px;line-height:1.5;
+}
+.sbfoot{margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+
+/* ---- main ---- */
+.main{min-width:0;display:flex;flex-direction:column;background:var(--ground)}
+.topbar{
+  background:var(--surface);border-bottom:1px solid var(--line);
+  padding:13px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  position:sticky;top:44px;z-index:40;
+}
+.topbar .tt{min-width:0}
+.topbar h1{margin:0;font-size:20px;line-height:1.2}
+.topbar .sub{font-size:12px;color:var(--ink-3);margin-top:1px}
+.topbar .acts{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.crumb{
+  display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px;cursor:pointer;
+}
+.crumb:hover{color:var(--accent)}
+.scrollarea{padding:22px 24px 60px;overflow:visible}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 306px;gap:22px;align-items:start}
+@media (max-width:1180px){.cols{grid-template-columns:1fr}}
+
+.eyebrow{
+  display:flex;align-items:center;gap:9px;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:11px;
+}
+.eyebrow .rule{flex:1;height:1px;background:var(--line)}
+.eyebrow b{color:var(--ink-2)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1)}
+.pnl{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1);overflow:hidden}
+.pnl-h{padding:12px 15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px}
+.pnl-h h3{margin:0;font-size:13px;font-weight:700;letter-spacing:-.005em}
+.pnl-h .r{margin-left:auto;display:flex;gap:6px;align-items:center}
+.pnl-b{padding:15px}
+
+/* ---- chips / pills ---- */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:500;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+  border-radius:999px;padding:3px 9px;cursor:pointer;white-space:nowrap;
+}
+.chip:hover{border-color:var(--line-2);background:var(--surface-2)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.chip.flat{border-radius:var(--r-xs);background:var(--surface-2);cursor:default}
+.chip.flat:hover{background:var(--surface-2)}
+.tag{
+  display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;border-radius:var(--r-xs);padding:2px 6px;
+  border:1px solid var(--line);color:var(--ink-3);background:var(--surface-2);white-space:nowrap;
+}
+.tag.accent{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft)}
+.tag.signal{border-color:var(--signal-line);color:var(--signal);background:var(--signal-soft)}
+.tag.ok{border-color:transparent;color:var(--ok);background:var(--ok-soft)}
+.tag.warn{border-color:transparent;color:var(--warn);background:var(--warn-soft)}
+.tag.hollow{background:transparent;border-style:dashed}
+
+/* channel marks */
+.cm{
+  width:18px;height:18px;border-radius:4px;flex:0 0 auto;display:grid;place-items:center;
+  font-size:8.5px;font-weight:800;color:#fff;letter-spacing:0;line-height:1;
+}
+.cm.fb{background:#1877F2}
+.cm.ig{background:linear-gradient(135deg,#F9CE34,#EE2A7B 55%,#6228D7)}
+.cm.li{background:#0A66C2}
+.cm.gg{background:#4285F4}
+.cm.ml{background:var(--ink-2)}
+.cm.lg{width:22px;height:22px;font-size:10px;border-radius:5px}
+.chan{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-2);font-weight:500}
+
+/* ============ idea cards ============ */
+.ideas{display:flex;flex-direction:column;gap:13px}
+.idea{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:15px 16px 14px;box-shadow:var(--sh-1);cursor:pointer;
+  transition:box-shadow .14s,border-color .14s,transform .14s;
+}
+.idea:hover{box-shadow:var(--sh-2);border-color:var(--line-2);transform:translateY(-1px)}
+.idea .row1{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+.idea .when{margin-left:auto;font-size:11px;color:var(--ink-4);display:flex;align-items:center;gap:5px;font-weight:500}
+.idea h3{margin:0 0 10px;font-size:19px;line-height:1.24}
+.why{
+  border-left:2px solid var(--signal);background:var(--signal-soft);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:9px 12px;margin-bottom:11px;
+}
+.why .wh{
+  display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--signal);margin-bottom:3px;
+}
+.why p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.brief{border-left:2px solid var(--line-2);background:var(--surface-2);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:9px 12px;margin-bottom:11px}
+.brief .wh{display:flex;align-items:center;gap:5px;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:3px}
+.brief p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.idea .chans{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.idea .acts{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+
+/* ============ rail ============ */
+.rail{display:flex;flex-direction:column;gap:16px}
+.sig{display:flex;flex-direction:column}
+.sigrow{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.sigrow:last-child{border-bottom:0;padding-bottom:0}
+.sigrow:first-child{padding-top:0}
+.sigrow .dot{width:6px;height:6px;border-radius:50%;background:var(--line-2);margin-top:6px;flex:0 0 auto}
+.sigrow .dot.hot{background:var(--signal);box-shadow:0 0 0 3px var(--signal-soft)}
+.sigrow .ag{margin-left:auto;font-size:10.5px;color:var(--ink-4);white-space:nowrap;font-variant-numeric:tabular-nums}
+.topitem{border:1px solid var(--line);border-radius:var(--r-md);padding:10px 11px;background:var(--surface)}
+.topitem + .topitem{margin-top:8px}
+.topitem .tn{font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.perf{display:flex;gap:14px;flex-wrap:wrap}
+.perf .m{display:flex;flex-direction:column;gap:1px}
+.perf .m b{font-size:15px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.perf .m.best b{color:var(--ok)}
+.perf .m s{text-decoration:none;font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4)}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.week .d{
+  border:1px solid var(--line);border-radius:var(--r-sm);padding:6px 0 5px;text-align:center;
+  font-size:10px;font-weight:600;color:var(--ink-4);position:relative;background:var(--surface);
+}
+.week .d span{display:block;height:4px;margin:5px 4px 0;border-radius:2px;background:transparent}
+.week .d.has span{background:var(--accent)}
+.week .d.dr span{background:repeating-linear-gradient(90deg,var(--line-2) 0 2px,transparent 2px 4px)}
+.week .d.today{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.ring{display:flex;align-items:center;gap:13px}
+.ring .g{
+  width:52px;height:52px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:conic-gradient(var(--accent) 0 78%, var(--surface-3) 78% 100%);
+}
+.ring .g i{
+  width:40px;height:40px;border-radius:50%;background:var(--surface);display:grid;place-items:center;
+  font-size:12.5px;font-weight:700;font-style:normal;color:var(--ink);font-variant-numeric:tabular-nums;
+}
+.note{font-size:12px;color:var(--ink-3);line-height:1.5;margin:0}
+.note.tight{margin-top:9px}
+
+/* ============ create menu ============ */
+.menu{
+  position:absolute;top:calc(100% + 7px);left:0;right:0;z-index:50;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  box-shadow:var(--sh-pop);padding:6px;
+}
+.menu[hidden]{display:none!important}
+.menu .mh{font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-4);padding:7px 9px 4px}
+.menu button{
+  font:inherit;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:var(--r-sm);
+  font-size:12.5px;font-weight:500;color:var(--ink-2);
+}
+.menu button:hover{background:var(--accent-soft);color:var(--accent)}
+.menu button svg{color:var(--ink-4)}
+.menu button:hover svg{color:var(--accent)}
+.menu button.soon{color:var(--ink-4);cursor:default}
+.menu button.soon:hover{background:transparent;color:var(--ink-4)}
+.menu .sep{height:1px;background:var(--line);margin:5px 4px}
+
+/* ============ composer ============ */
+.brief-in{
+  width:100%;font:inherit;font-size:14px;line-height:1.6;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:12px 14px;resize:vertical;min-height:88px;
+}
+.brief-in:focus{outline:2px solid var(--accent);outline-offset:1px;background:var(--surface)}
+.lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
+.fld{margin-bottom:14px}
+.inp{
+  width:100%;font:inherit;font-size:13px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 11px;
+}
+.inp:focus{outline:2px solid var(--accent);outline-offset:1px}
+.sel{
+  width:100%;font:inherit;font-size:13px;color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 11px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+}
+.sel:hover{border-color:var(--line-2)}
+.sel svg{margin-left:auto;color:var(--ink-4)}
+
+/* ============ post preview ============ */
+.post{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.post-h{display:flex;align-items:center;gap:10px;padding:11px 13px}
+.post-h .av{
+  width:34px;height:34px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
+  background:linear-gradient(160deg,#7FA778,#3E6B47);color:#fff;font-size:12px;font-weight:700;
+}
+.post-h .n1{display:block;font-size:13px;font-weight:700;line-height:1.25}
+.post-h .n2{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--ink-4)}
+.post-h .mk{margin-left:auto}
+.post-b{padding:0 13px 12px;font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.post-b p{margin:0 0 9px}
+.post-b p:last-child{margin-bottom:0}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:3px;border-top:1px solid var(--line)}
+.shot{aspect-ratio:4/3;position:relative;overflow:hidden}
+.shot .cap{
+  position:absolute;left:8px;bottom:8px;font-size:9.5px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:#fff;background:rgba(12,20,15,.55);padding:2px 7px;border-radius:999px;
+  backdrop-filter:blur(3px);
+}
+.ph-a{background:
+  radial-gradient(120% 90% at 18% 12%,#D6E6CD 0,transparent 58%),
+  radial-gradient(95% 85% at 88% 22%,#F0F3E2 0,transparent 52%),
+  radial-gradient(150% 130% at 46% 112%,#3B6742 0,transparent 66%),
+  linear-gradient(168deg,#8FB183,#4B7452)}
+.ph-b{background:
+  radial-gradient(110% 95% at 78% 16%,#EFE3C6 0,transparent 55%),
+  radial-gradient(130% 110% at 20% 96%,#5C7A4A 0,transparent 62%),
+  linear-gradient(155deg,#A8B98C,#6C8557)}
+.ph-c{background:
+  radial-gradient(100% 90% at 30% 20%,#CFDDE8 0,transparent 56%),
+  radial-gradient(140% 120% at 70% 108%,#41654E 0,transparent 64%),
+  linear-gradient(175deg,#93AE9B,#4E6E5A)}
+.ph-d{background:
+  radial-gradient(120% 100% at 62% 14%,#F3E7CE 0,transparent 54%),
+  radial-gradient(130% 115% at 28% 104%,#6B5A34 0,transparent 60%),
+  linear-gradient(160deg,#C2B489,#8A7A4E)}
+.ph-e{background:
+  radial-gradient(115% 95% at 24% 18%,#DCE9D2 0,transparent 57%),
+  radial-gradient(145% 125% at 78% 110%,#2F5540 0,transparent 63%),
+  linear-gradient(150deg,#7FA184,#3E6349)}
+
+/* ============ tabs ============ */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:0 24px;background:var(--surface);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{
+  font:inherit;background:none;border:0;cursor:pointer;position:relative;
+  padding:10px 13px 11px;font-size:13px;font-weight:500;color:var(--ink-3);
+  display:flex;align-items:center;gap:7px;white-space:nowrap;
+}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);font-weight:700}
+.tabs button[aria-selected="true"]:after{
+  content:"";position:absolute;left:9px;right:9px;bottom:-1px;height:2px;background:var(--accent);border-radius:2px 2px 0 0;
+}
+.tabs button.soon{color:var(--ink-4);cursor:default}
+
+/* ============ fact check ============ */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{
+  text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-4);padding:8px 13px;border-bottom:1px solid var(--line);background:var(--surface-2);
+}
+.tbl td{padding:9px 13px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .src{font-size:11.5px;color:var(--ink-4)}
+
+/* ============ action bar ============ */
+.actionbar{
+  position:sticky;bottom:0;background:var(--surface);border-top:1px solid var(--line);
+  padding:12px 24px;display:flex;align-items:center;gap:9px;flex-wrap:wrap;z-index:30;
+  box-shadow:0 -6px 18px -14px rgba(19,26,23,.30);
+}
+.deliv{
+  margin-left:auto;display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-4);
+  border:1px dashed var(--line-2);border-radius:999px;padding:4px 11px;
+}
+.deliv svg{color:var(--ink-4)}
+.deliv.own{color:var(--accent);border-color:var(--accent-line);background:var(--accent-soft)}
+.deliv.own svg{color:var(--accent)}
+
+/* ============ calendar ============ */
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:var(--line);gap:1px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line)}
+.cal .dow{background:var(--surface-2);padding:8px 8px;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)}
+.cal .day{background:var(--surface);min-height:100px;padding:7px 6px;display:flex;flex-direction:column;gap:4px;min-width:0;overflow:hidden}
+#scr-kalender .cols{grid-template-columns:minmax(0,1fr) 276px}
+@media (max-width:1180px){#scr-kalender .cols{grid-template-columns:1fr}}
+.cal .day.out{background:var(--surface-2)}
+.cal .day .dn{font-size:11px;font-weight:600;color:var(--ink-4);font-variant-numeric:tabular-nums}
+.cal .day.today .dn{
+  color:var(--on-accent);background:var(--accent);width:20px;height:20px;border-radius:50%;
+  display:grid;place-items:center;font-size:10.5px;
+}
+.ev{
+  font-size:10.5px;font-weight:600;line-height:1.3;padding:4px 6px;border-radius:var(--r-xs);
+  display:flex;align-items:flex-start;gap:5px;cursor:pointer;border:1px solid transparent;
+  min-width:0;max-width:100%;overflow:hidden;
+}
+.ev .cm{margin-top:1px}
+.ev svg{margin-top:1px}
+.ev .lb{
+  min-width:0;overflow:hidden;word-break:normal;overflow-wrap:break-word;hyphens:manual;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+}
+.ev .cm{width:12px;height:12px;font-size:6.5px;border-radius:3px}
+.ev.pub{background:var(--ok-soft);color:var(--ok)}
+.ev.sch{background:var(--accent-soft);color:var(--accent)}
+.ev.drf{background:var(--surface-2);color:var(--ink-3);border-color:var(--line-2);border-style:dashed}
+.ev.anc{background:var(--signal-soft);color:var(--signal);border-color:var(--signal-line)}
+.ev:hover{filter:brightness(.97)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:13px}
+.legend .li{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-3)}
+.legend .sw{width:11px;height:11px;border-radius:3px;border:1px solid transparent}
+.legend .sw.pub{background:var(--ok-soft);border-color:var(--ok)}
+.legend .sw.sch{background:var(--accent-soft);border-color:var(--accent)}
+.legend .sw.drf{background:var(--surface-2);border-color:var(--line-2);border-style:dashed}
+.legend .sw.anc{background:var(--signal-soft);border-color:var(--signal)}
+.qitem{
+  border:1px solid var(--line);border-left:3px solid var(--line-2);border-radius:var(--r-sm);
+  padding:9px 11px;background:var(--surface);cursor:grab;
+}
+.qitem + .qitem{margin-top:7px}
+.qitem:hover{border-color:var(--line-2);box-shadow:var(--sh-1)}
+.qitem.ic{border-left-color:var(--accent)}
+.qitem.oc{border-left-color:var(--signal)}
+.qitem .qt{font-size:12.5px;font-weight:600;line-height:1.35;margin-top:5px}
+
+/* ============ library ============ */
+.filterbar{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:11px 24px;
+  background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:105px;z-index:35;
+}
+.filterbar .div{width:1px;height:20px;background:var(--line);margin:0 4px}
+.filterbar .fl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)}
+.libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:15px}
+.lib{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  cursor:pointer;box-shadow:var(--sh-1);transition:box-shadow .14s,transform .14s,border-color .14s;
+  display:flex;flex-direction:column;
+}
+.lib:hover{box-shadow:var(--sh-2);transform:translateY(-2px);border-color:var(--line-2)}
+.lib .th{aspect-ratio:16/10;position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:8px}
+.lib .th .cm{box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.lib .th .og{
+  font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(255,255,255,.94);color:#14181B;padding:2px 6px;border-radius:999px;
+}
+.lib .th .og.ic{background:var(--accent);color:var(--on-accent)}
+.lib .bd{padding:10px 11px 11px;display:flex;flex-direction:column;gap:7px;flex:1}
+.lib .nm{font-size:13px;font-weight:600;line-height:1.32}
+.lib .dt{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-4)}
+.lib .pf{display:flex;gap:12px;margin-top:auto;padding-top:9px;border-top:1px solid var(--line)}
+.lib .pf .m{display:flex;flex-direction:column}
+.lib .pf b{font-size:13px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.lib .pf .m.best b{color:var(--ok)}
+.lib .pf s{text-decoration:none;font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-4)}
+.lib .th.doc{background:var(--surface-2);align-items:center;justify-content:center;flex-direction:column;gap:7px}
+.lib .th.doc svg{width:26px;height:26px;color:var(--ink-4);stroke-width:1.3}
+.lib .th.doc .og{position:absolute;top:8px;right:8px}
+
+/* ============ brand brain ============ */
+.bb{display:grid;grid-template-columns:214px minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:980px){.bb{grid-template-columns:1fr}}
+.bbnav{display:flex;flex-direction:column;gap:1px;position:sticky;top:118px}
+.bbnav button{
+  font:inherit;background:none;border:0;cursor:pointer;text-align:left;
+  display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:var(--r-sm);
+  font-size:13px;font-weight:500;color:var(--ink-2);
+}
+.bbnav button:hover{background:var(--surface-2)}
+.bbnav button[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.bbnav .tk{
+  width:15px;height:15px;border-radius:50%;flex:0 0 auto;border:1.5px solid var(--line-2);
+  display:grid;place-items:center;
+}
+.bbnav .tk svg{width:9px;height:9px;stroke-width:2.6;color:transparent}
+.bbnav button.done .tk{background:var(--ok);border-color:var(--ok)}
+.bbnav button.done .tk svg{color:var(--on-ok)}
+.prov{
+  display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;
+  letter-spacing:.05em;color:var(--ink-4);border:1px dashed var(--line-2);
+  border-radius:999px;padding:2px 8px;margin-top:9px;
+}
+.field{
+  border:1px solid var(--line);border-radius:var(--r-md);padding:12px 14px;background:var(--surface-2);
+  font-size:13.5px;line-height:1.6;color:var(--ink);
+}
+.swatches{display:flex;gap:9px;flex-wrap:wrap}
+.sw2{width:44px;height:44px;border-radius:var(--r-sm);border:1px solid rgba(0,0,0,.08);box-shadow:var(--sh-1)}
+
+/* ============ toast ============ */
+.toast{
+  position:fixed;left:50%;bottom:calc(84px + var(--barh,0px));transform:translate(-50%,14px);z-index:90;
+  background:var(--ink);color:var(--ground);border-radius:999px;padding:10px 18px;
+  font-size:13px;font-weight:600;box-shadow:var(--sh-pop);
+  display:flex;align-items:center;gap:9px;opacity:0;pointer-events:none;
+  transition:opacity .18s,transform .18s;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast svg{color:#8FD3AE}
+
+.scr[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ============ themevarianten ============ */
+:root[data-accent="clay"]{
+  --ground:#F4F1EC;  --surface:#FFFFFF;  --surface-2:#FAF7F2;  --surface-3:#F0EBE2;
+  --line:#E5DED3;  --line-2:#CBBFAE;  --ink:#1E1813;  --ink-2:#4F463C;
+  --ink-3:#766B5E;  --ink-4:#7E7466;  --accent:#9C4A24;  --accent-2:#B25A31;
+  --accent-soft:#F7E9E0;  --accent-line:#E4C4B0;  --on-accent:#FFFFFF;  --signal:#3D6B4E;
+  --signal-soft:#E6EFE7;  --signal-line:#BFD6C6;  --ok:#2C6641;  --ok-soft:#E2EEE6;
+  --warn:#8A3A3A;  --warn-soft:#F7E4E4;  --on-ok:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-accent="clay"]:not([data-theme="light"]){
+    --ground:#131010;    --surface:#1B1716;    --surface-2:#221D1B;    --surface-3:#292320;
+    --line:#322A26;    --line-2:#4C4139;    --ink:#EDE7E0;    --ink-2:#B8ACA0;
+    --ink-3:#93897E;    --ink-4:#8C8071;    --accent:#D98A5F;    --accent-2:#E39C74;
+    --accent-soft:#2C1D14;    --accent-line:#4C3222;    --on-accent:#17110C;    --signal:#7FB894;
+    --signal-soft:#17251C;    --signal-line:#2C4335;    --ok:#7FB894;    --ok-soft:#17251C;
+    --warn:#D98080;    --warn-soft:#2A1717;    --on-ok:#0F1711;
+  }
+}
+:root[data-accent="clay"][data-theme="dark"]{
+  --ground:#131010;  --surface:#1B1716;  --surface-2:#221D1B;  --surface-3:#292320;
+  --line:#322A26;  --line-2:#4C4139;  --ink:#EDE7E0;  --ink-2:#B8ACA0;
+  --ink-3:#93897E;  --ink-4:#8C8071;  --accent:#D98A5F;  --accent-2:#E39C74;
+  --accent-soft:#2C1D14;  --accent-line:#4C3222;  --on-accent:#17110C;  --signal:#7FB894;
+  --signal-soft:#17251C;  --signal-line:#2C4335;  --ok:#7FB894;  --ok-soft:#17251C;
+  --warn:#D98080;  --warn-soft:#2A1717;  --on-ok:#0F1711;
+}
+:root[data-accent="cobalt"]{
+  --ground:#F1F4F9;  --surface:#FFFFFF;  --surface-2:#F7F9FC;  --surface-3:#EAEFF7;
+  --line:#DFE5EF;  --line-2:#C0CADB;  --ink:#0E1420;  --ink-2:#414E63;
+  --ink-3:#626E80;  --ink-4:#66768F;  --accent:#1F4FD8;  --accent-2:#2E60E8;
+  --accent-soft:#E4EBFC;  --accent-line:#BACCF6;  --on-accent:#FFFFFF;  --signal:#A0640B;
+  --signal-soft:#FBF0DC;  --signal-line:#EDD3A0;  --ok:#10714A;  --ok-soft:#DFF0E7;
+  --warn:#AB3729;  --warn-soft:#FBE7E4;  --on-ok:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-accent="cobalt"]:not([data-theme="light"]){
+    --ground:#0B0E14;    --surface:#141922;    --surface-2:#1A2029;    --surface-3:#212936;
+    --line:#262E3B;    --line-2:#3C465A;    --ink:#E6EAF2;    --ink-2:#A9B3C4;
+    --ink-3:#828C9C;    --ink-4:#798392;    --accent:#7FA0F5;    --accent-2:#97B2F8;
+    --accent-soft:#16203A;    --accent-line:#2A3A63;    --on-accent:#0A0E16;    --signal:#E0AE62;
+    --signal-soft:#2C2417;    --signal-line:#4A3B21;    --ok:#6FC198;    --ok-soft:#122519;
+    --warn:#E08A80;    --warn-soft:#2A1614;    --on-ok:#0A1610;
+  }
+}
+:root[data-accent="cobalt"][data-theme="dark"]{
+  --ground:#0B0E14;  --surface:#141922;  --surface-2:#1A2029;  --surface-3:#212936;
+  --line:#262E3B;  --line-2:#3C465A;  --ink:#E6EAF2;  --ink-2:#A9B3C4;
+  --ink-3:#828C9C;  --ink-4:#798392;  --accent:#7FA0F5;  --accent-2:#97B2F8;
+  --accent-soft:#16203A;  --accent-line:#2A3A63;  --on-accent:#0A0E16;  --signal:#E0AE62;
+  --signal-soft:#2C2417;  --signal-line:#4A3B21;  --ok:#6FC198;  --ok-soft:#122519;
+  --warn:#E08A80;  --warn-soft:#2A1614;  --on-ok:#0A1610;
+}
+:root[data-accent="ink"]{
+  --ground:#F2F2F0;  --surface:#FFFFFF;  --surface-2:#F7F7F5;  --surface-3:#ECECE9;
+  --line:#E2E2DE;  --line-2:#C4C4BE;  --ink:#131313;  --ink-2:#474745;
+  --ink-3:#6D6D68;  --ink-4:#76766D;  --accent:#1C1C1A;  --accent-2:#333331;
+  --accent-soft:#EAEAE6;  --accent-line:#C4C4BD;  --on-accent:#FAFAF7;  --signal:#96661E;
+  --signal-soft:#F6EEDD;  --signal-line:#DFC79B;  --ok:#2C6641;  --ok-soft:#E3EDE6;
+  --warn:#8C4A2F;  --warn-soft:#F6E9E3;  --on-ok:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-accent="ink"]:not([data-theme="light"]){
+    --ground:#0D0D0C;    --surface:#171716;    --surface-2:#1E1E1C;    --surface-3:#252523;
+    --line:#2C2C29;    --line-2:#444440;    --ink:#EDEDEA;    --ink-2:#AFAFA9;
+    --ink-3:#8A8A85;    --ink-4:#81817A;    --accent:#E8E8E2;    --accent-2:#FFFFFA;
+    --accent-soft:#232321;    --accent-line:#3C3C38;    --on-accent:#121211;    --signal:#D6A45E;
+    --signal-soft:#2C2418;    --signal-line:#4A3B21;    --ok:#79B48F;    --ok-soft:#18251D;
+    --warn:#CB8A70;    --warn-soft:#2A1D17;    --on-ok:#0F1711;
+  }
+}
+:root[data-accent="ink"][data-theme="dark"]{
+  --ground:#0D0D0C;  --surface:#171716;  --surface-2:#1E1E1C;  --surface-3:#252523;
+  --line:#2C2C29;  --line-2:#444440;  --ink:#EDEDEA;  --ink-2:#AFAFA9;
+  --ink-3:#8A8A85;  --ink-4:#81817A;  --accent:#E8E8E2;  --accent-2:#FFFFFA;
+  --accent-soft:#232321;  --accent-line:#3C3C38;  --on-accent:#121211;  --signal:#D6A45E;
+  --signal-soft:#2C2418;  --signal-line:#4A3B21;  --ok:#79B48F;  --ok-soft:#18251D;
+  --warn:#CB8A70;  --warn-soft:#2A1D17;  --on-ok:#0F1711;
+}
+:root[data-accent="plum"]{
+  --ground:#F5F2F5;  --surface:#FFFFFF;  --surface-2:#FAF7FA;  --surface-3:#EFE9EF;
+  --line:#E6DEE6;  --line-2:#CBBCCB;  --ink:#1A1218;  --ink-2:#4C3F49;
+  --ink-3:#776973;  --ink-4:#80717C;  --accent:#5B2A50;  --accent-2:#713963;
+  --accent-soft:#F1E6EF;  --accent-line:#D9C1D3;  --on-accent:#FFFFFF;  --signal:#9E5330;
+  --signal-soft:#F9EBE2;  --signal-line:#E8C8B4;  --ok:#2C6641;  --ok-soft:#E2EEE6;
+  --warn:#9C2F4C;  --warn-soft:#F9E4EA;  --on-ok:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-accent="plum"]:not([data-theme="light"]){
+    --ground:#120E11;    --surface:#1A151A;    --surface-2:#211B20;    --surface-3:#282127;
+    --line:#2F262E;    --line-2:#493C46;    --ink:#EDE6EC;    --ink-2:#B7A8B3;
+    --ink-3:#928690;    --ink-4:#8A7D86;    --accent:#C79BBD;    --accent-2:#D6AFCD;
+    --accent-soft:#271A24;    --accent-line:#43303D;    --on-accent:#150E13;    --signal:#DFA075;
+    --signal-soft:#2B1F17;    --signal-line:#4A3524;    --ok:#7FB894;    --ok-soft:#17251C;
+    --warn:#D98098;    --warn-soft:#2A1620;    --on-ok:#0F1711;
+  }
+}
+:root[data-accent="plum"][data-theme="dark"]{
+  --ground:#120E11;  --surface:#1A151A;  --surface-2:#211B20;  --surface-3:#282127;
+  --line:#2F262E;  --line-2:#493C46;  --ink:#EDE6EC;  --ink-2:#B7A8B3;
+  --ink-3:#928690;  --ink-4:#8A7D86;  --accent:#C79BBD;  --accent-2:#D6AFCD;
+  --accent-soft:#271A24;  --accent-line:#43303D;  --on-accent:#150E13;  --signal:#DFA075;
+  --signal-soft:#2B1F17;  --signal-line:#4A3524;  --ok:#7FB894;  --ok-soft:#17251C;
+  --warn:#D98098;  --warn-soft:#2A1620;  --on-ok:#0F1711;
+}
+
+/* ============ theme picker ============ */
+.picker{
+  position:fixed;left:50%;bottom:calc(18px + var(--barh,0px));transform:translateX(-50%);
+  z-index:80;display:flex;align-items:center;gap:11px;
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:7px 9px 7px 14px;box-shadow:var(--sh-pop);
+}
+.picker .pl{
+  font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-4);white-space:nowrap;
+}
+.picker .sws{display:flex;gap:5px}
+.tsw{
+  width:26px;height:26px;border-radius:50%;padding:0;cursor:pointer;
+  border:1.5px solid var(--line-2);background:none;display:grid;place-items:center;
+  transition:transform .12s,border-color .12s;
+}
+.tsw i{
+  display:block;width:16px;height:16px;border-radius:50%;
+  background:linear-gradient(135deg,var(--a) 0 50%,var(--s) 50% 100%);
+  box-shadow:0 0 0 1px rgba(0,0,0,.10) inset;
+}
+.tsw:hover{transform:scale(1.09);border-color:var(--ink-4)}
+.tsw[aria-pressed="true"]{border-color:var(--accent);border-width:2px}
+.picker .pdiv{width:1px;height:22px;background:var(--line)}
+.picker .pname{
+  font-size:12px;font-weight:600;color:var(--ink-2);min-width:52px;
+}
+.tmode{
+  font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;color:var(--ink-2);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;
+  padding:5px 11px;display:flex;align-items:center;gap:6px;white-space:nowrap;
+}
+.tmode:hover{border-color:var(--line-2);color:var(--ink)}
+@media (max-width:720px){
+  .picker{gap:8px;padding:6px 8px 6px 10px}
+  .picker .pl,.picker .pname,.picker .pdiv{display:none}
+}
+
+</style>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="i-today" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></symbol>
+<symbol id="i-idea" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-campaign" viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+<symbol id="i-library" viewBox="0 0 24 24"><path d="M4 7.5 12 4l8 3.5-8 3.5-8-3.5zM4 12l8 3.5 8-3.5M4 16.5 12 20l8-3.5"/></symbol>
+<symbol id="i-signal" viewBox="0 0 24 24"><circle cx="12" cy="18" r="2"/><path d="M7.5 14.5a6 6 0 0 1 9 0M4.5 11a10 10 0 0 1 15 0"/></symbol>
+<symbol id="i-competitor" viewBox="0 0 24 24"><path d="M5 21V4h9l-1 3 1 3H5"/><path d="M14 10h5v7h-5"/></symbol>
+<symbol id="i-event" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l5.5-5.5 4 4L21 7"/><path d="M15 7h6v6"/></symbol>
+<symbol id="i-brand" viewBox="0 0 24 24"><path d="M12 3l3 3.2 4.2 1-1 4.3 1 4.2-4.2 1L12 21l-3-3.3-4.2-1 1-4.2-1-4.3 4.2-1z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+<symbol id="i-media" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 16l4.5-4.5 3.5 3.5 3-3L21 15"/><circle cx="8.5" cy="9.5" r="1.4"/></symbol>
+<symbol id="i-channels" viewBox="0 0 24 24"><path d="M9.5 14.5 6.8 17.2a3.8 3.8 0 1 1-5.4-5.4l2.7-2.7M14.5 9.5l2.7-2.7a3.8 3.8 0 1 1 5.4 5.4l-2.7 2.7M9 15l6-6"/></symbol>
+<symbol id="i-report" viewBox="0 0 24 24"><path d="M4 20V10M10 20V5M16 20v-7M22 20H2"/></symbol>
+<symbol id="i-ads" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/><path d="M9 11h6"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 6.8l2.1 2.1M17.7 15.1l2.1 2.1M2 12h3M19 12h3M4.2 17.2l2.1-2.1M17.7 8.9l2.1-2.1"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+<symbol id="i-chevl" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="i-chevr" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.4-8A5.5 5.5 0 0 1 17 9.6 3.7 3.7 0 0 1 16.8 18z"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M21 4 3 11l7 2.5L12.5 21z"/><path d="M21 4 10 13.5"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-13.6-4.6L3 9.5"/><path d="M3 5v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.6 4.6L21 14.5"/><path d="M21 19v-4.5h-4.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 16.5 8 12l4 3.5 3-2.5 6 4.5"/><circle cx="8.5" cy="9" r="1.3"/></symbol>
+<symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M7.5 9.5 12 5l4.5 4.5M5 20h14"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+<symbol id="i-tmpl" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></symbol>
+<symbol id="i-drag" viewBox="0 0 24 24"><path d="M9 6h.01M15 6h.01M9 12h.01M15 12h.01M9 18h.01M15 18h.01" stroke-width="2.4"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+</defs></svg>
+
+<div class="demobar">
+  <span class="dl">Inspiration Cloud V2 &middot; <b>Mockup fase 1</b></span>
+  <nav class="scrnav" id="scrnav" aria-label="Schermen">
+    <button data-go="vandaag" aria-current="true"><span class="n">01</span> Vandaag</button>
+    <button data-go="nieuw"><span class="n">02</span> Zelf starten</button>
+    <button data-go="materiaal"><span class="n">03</span> Idee &rarr; materiaal</button>
+    <button data-go="kalender"><span class="n">04</span> Kalender</button>
+    <button data-go="bibliotheek"><span class="n">05</span> Bibliotheek</button>
+    <button data-go="merkbrein"><span class="n">06</span> Merkbrein</button>
+  </nav>
+</div>
+
+<div class="app">
+  <aside class="sb">
+    <div class="brand">
+      <span class="mk"><svg class="ic"><use href="#i-cloud"/></svg></span>
+      <span class="bn">Inspiration<i>Cloud</i></span>
+    </div>
+
+    <div class="tenant">
+      <span class="av">VT</span>
+      <span class="tt">
+        <span class="t1">Verhaeghe Tuinen</span>
+        <span class="t2">Gent &middot; Tuinaanleg</span>
+      </span>
+      <svg class="ic sm"><use href="#i-chev"/></svg>
+    </div>
+
+    <div class="newbtn">
+      <button class="btn pri blk" id="newbtn" aria-expanded="false">
+        <svg class="ic sm"><use href="#i-plus"/></svg> Nieuw
+      </button>
+      <div class="menu" id="newmenu" hidden>
+        <div class="mh">Vanaf nul beginnen</div>
+        <button data-go="nieuw"><svg class="ic sm"><use href="#i-image"/></svg> Social post</button>
+        <button data-go="materiaal"><svg class="ic sm"><use href="#i-search"/></svg> Zoekcampagne</button>
+        <button data-go="materiaal"><svg class="ic sm"><use href="#i-campaign"/></svg> Social-advertentie</button>
+        <button data-go="materiaal"><svg class="ic sm"><use href="#i-mail"/></svg> E-mailcampagne</button>
+        <button class="soon"><svg class="ic sm"><use href="#i-doc"/></svg> Blogartikel <span class="fase">Fase 2</span></button>
+        <div class="sep"></div>
+        <div class="mh">Of</div>
+        <button data-go="kalender"><svg class="ic sm"><use href="#i-idea"/></svg> Kies uit Idee&euml;n</button>
+        <button data-go="bibliotheek"><svg class="ic sm"><use href="#i-upload"/></svg> Bestand uploaden</button>
+      </div>
+    </div>
+
+    <div class="navgrp">Doen</div>
+    <nav class="nav">
+      <a data-go="vandaag" data-nav="vandaag" aria-current="page"><svg class="ic"><use href="#i-today"/></svg> Vandaag <span class="ct">4</span></a>
+      <a data-go="materiaal" data-nav="materiaal"><svg class="ic"><use href="#i-idea"/></svg> Idee&euml;n</a>
+      <a data-go="materiaal"><svg class="ic"><use href="#i-campaign"/></svg> Campagnes</a>
+      <a data-go="kalender" data-nav="kalender"><svg class="ic"><use href="#i-calendar"/></svg> Kalender</a>
+      <a data-go="bibliotheek" data-nav="bibliotheek nieuw"><svg class="ic"><use href="#i-library"/></svg> Bibliotheek</a>
+    </nav>
+
+    <div class="navgrp">Opvolgen</div>
+    <nav class="nav">
+      <a data-go="vandaag"><svg class="ic"><use href="#i-signal"/></svg> Signalen</a>
+      <a class="soon"><svg class="ic"><use href="#i-competitor"/></svg> Concurrenten <span class="fase">F2</span></a>
+      <a class="soon"><svg class="ic"><use href="#i-event"/></svg> Evenementen <span class="fase">F2</span></a>
+      <a class="soon"><svg class="ic"><use href="#i-trend"/></svg> Trends <span class="fase">F2</span></a>
+    </nav>
+
+    <div class="navgrp">Merk</div>
+    <nav class="nav">
+      <a data-go="merkbrein" data-nav="merkbrein"><svg class="ic"><use href="#i-brand"/></svg> Merkbrein</a>
+      <a data-go="bibliotheek"><svg class="ic"><use href="#i-media"/></svg> Media</a>
+      <a data-go="merkbrein"><svg class="ic"><use href="#i-channels"/></svg> Kanalen</a>
+    </nav>
+
+    <div class="navgrp">Meten</div>
+    <nav class="nav">
+      <a class="soon"><svg class="ic"><use href="#i-report"/></svg> Rapportering <span class="fase">F3</span></a>
+      <a class="soon"><svg class="ic"><use href="#i-ads"/></svg> Advertentiebeheer <span class="fase">F3</span></a>
+    </nav>
+
+    <div class="sbfoot">
+      <nav class="nav">
+        <a><svg class="ic"><use href="#i-chat"/></svg> Vraag het IC</a>
+        <a><svg class="ic"><use href="#i-settings"/></svg> Instellingen</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main">
+
+  <!-- ========== 01 VANDAAG ========== -->
+  <section class="scr" id="scr-vandaag">
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">Vandaag</h1>
+        <div class="sub">Vrijdag 11 september &middot; 4 nieuwe suggesties</div>
+      </div>
+      <div class="acts">
+        <button class="btn"><svg class="ic sm"><use href="#i-chat"/></svg> Vraag het IC</button>
+        <button class="btn pri" data-go="nieuw"><svg class="ic sm"><use href="#i-plus"/></svg> Nieuw</button>
+      </div>
+    </div>
+
+    <div class="scrollarea">
+      <div class="cols">
+        <div>
+          <div class="eyebrow"><b>Voorgesteld voor jou</b> <span class="rule"></span> <span>gerangschikt op relevantie</span></div>
+
+          <div class="ideas">
+            <article class="idea" data-go="materiaal">
+              <div class="row1">
+                <span class="tag accent">IC</span>
+                <span class="tag"><svg class="ic xs"><use href="#i-sun"/></svg> Weerdata</span>
+                <span class="tag">Seizoen</span>
+                <span class="when"><svg class="ic xs"><use href="#i-clock"/></svg> Actie vóór woensdag</span>
+              </div>
+              <h3 class="srf">Promoot je najaarsonderhoud vóór het eerste regenvenster</h3>
+              <div class="why">
+                <div class="wh"><svg class="ic xs"><use href="#i-spark"/></svg> Waarom dit</div>
+                <p>Negen droge dagen voorspeld vanaf zondag, daarna regen vanaf 8 september. Boekingen voor najaarsonderhoud pieken in jouw regio in de twee weken na de eerste koude nacht.</p>
+              </div>
+              <div class="chans">
+                <span class="chan"><span class="cm fb">f</span> Facebook</span>
+                <span class="chan"><span class="cm ig">IG</span> Instagram</span>
+                <span class="chan"><span class="cm ml"><svg class="ic xs" style="width:10px;height:10px"><use href="#i-mail"/></svg></span> E-mail</span>
+                <span class="chan"><span class="cm gg">G</span> Zoekadvertentie</span>
+              </div>
+              <div class="acts">
+                <button class="btn pri" data-go="materiaal"><svg class="ic sm"><use href="#i-spark"/></svg> Maak alle vier</button>
+                <button class="btn">Kies kanalen</button>
+                <button class="btn gho">Niet nu</button>
+              </div>
+            </article>
+
+            <article class="idea" data-go="materiaal">
+              <div class="row1">
+                <span class="tag accent">IC</span>
+                <span class="tag"><svg class="ic xs"><use href="#i-competitor"/></svg> Meta-advertentiebibliotheek</span>
+                <span class="when">2 concurrenten</span>
+              </div>
+              <h3 class="srf">Beide concurrenten in de buurt adverteren op prijs &mdash; zet jij in op je garantie</h3>
+              <div class="why">
+                <div class="wh"><svg class="ic xs"><use href="#i-spark"/></svg> Waarom dit</div>
+                <p>Groendienst Claeys en Tuinen Devos startten de afgelopen zes dagen elk kortingsadvertenties. Je merkbrein noemt &ldquo;10 jaar plantgarantie&rdquo; als je sterkste onderscheid; geen van beiden vermeldt er één.</p>
+              </div>
+              <div class="chans">
+                <span class="chan"><span class="cm fb">f</span> Facebook-advertentie</span>
+                <span class="chan"><span class="cm gg">G</span> Zoekadvertentie</span>
+                <span class="chip flat"><svg class="ic xs"><use href="#i-eye"/></svg> Bekijk de 7 advertenties</span>
+              </div>
+              <div class="acts">
+                <button class="btn pri" data-go="materiaal"><svg class="ic sm"><use href="#i-spark"/></svg> Maak advertenties</button>
+                <button class="btn">Vergelijk teksten</button>
+                <button class="btn gho">Niet nu</button>
+              </div>
+            </article>
+
+            <article class="idea" data-go="materiaal">
+              <div class="row1">
+                <span class="tag accent">IC</span>
+                <span class="tag"><svg class="ic xs"><use href="#i-doc"/></svg> Sectornieuws</span>
+                <span class="when">Blijft actueel</span>
+              </div>
+              <h3 class="srf">Nieuwe Vlaamse hemelwaterregels vanaf januari &mdash; leg ze uit aan je klanten</h3>
+              <div class="why">
+                <div class="wh"><svg class="ic xs"><use href="#i-spark"/></svg> Waarom dit</div>
+                <p>Twee vakbladen berichtten deze week over de vergunningswijziging. Je laatste e-mail over regelgeving had je hoogste openingsratio van het jaar.</p>
+              </div>
+              <div class="chans">
+                <span class="chan"><span class="cm ml"><svg class="ic xs" style="width:10px;height:10px"><use href="#i-mail"/></svg></span> E-mail</span>
+                <span class="chan"><span class="cm li">in</span> LinkedIn</span>
+              </div>
+              <div class="acts">
+                <button class="btn pri" data-go="materiaal"><svg class="ic sm"><use href="#i-spark"/></svg> Maak beide</button>
+                <button class="btn">Kies kanalen</button>
+                <button class="btn gho">Niet nu</button>
+              </div>
+            </article>
+
+            <article class="idea" data-go="nieuw">
+              <div class="row1">
+                <span class="tag">Jij</span>
+                <span class="tag hollow">Jouw notitie &middot; 26 aug</span>
+                <span class="when">In Idee&euml;n</span>
+              </div>
+              <h3 class="srf">We zoeken een tweede tuinier &mdash; laat het lokaal weten</h3>
+              <div class="brief">
+                <div class="wh">Jouw briefing</div>
+                <p>Iemand met 3+ jaar ervaring, rijbewijs B, start in oktober. Hou het menselijk, niet corporate.</p>
+              </div>
+              <div class="chans">
+                <span class="chan"><span class="cm fb">f</span> Facebook</span>
+                <span class="chan"><span class="cm li">in</span> LinkedIn</span>
+                <span class="chan"><span class="cm ig">IG</span> Instagram</span>
+              </div>
+              <div class="acts">
+                <button class="btn pri" data-go="nieuw"><svg class="ic sm"><use href="#i-spark"/></svg> Maak alle drie</button>
+                <button class="btn">Briefing aanpassen</button>
+                <button class="btn gho">Archiveren</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="rail">
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--signal)"><use href="#i-signal"/></svg>
+              <h3>Signalen</h3>
+              <span class="r"><span class="tag hollow">Live</span></span>
+            </div>
+            <div class="pnl-b">
+              <div class="sig">
+                <div class="sigrow"><span class="dot hot"></span><span>Tuinen Devos startte een nieuwe Facebook-advertentieset</span><span class="ag">2u</span></div>
+                <div class="sigrow"><span class="dot hot"></span><span>Negen droge dagen voorspeld, Gent</span><span class="ag">6u</span></div>
+                <div class="sigrow"><span class="dot"></span><span>Wijziging hemelwatervergunning &mdash; Tuin&amp;Park</span><span class="ag">1d</span></div>
+                <div class="sigrow"><span class="dot"></span><span>Groendienst Claeys vernieuwde zijn homepage</span><span class="ag">2d</span></div>
+                <div class="sigrow"><span class="dot"></span><span>&ldquo;tuinaanleg gent&rdquo; +18% t.o.v. vorige maand</span><span class="ag">3d</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--ok)"><use href="#i-trend"/></svg>
+              <h3>Wat werkte</h3>
+              <span class="r"><button class="btn gho sm" data-go="bibliotheek">Alles</button></span>
+            </div>
+            <div class="pnl-b">
+              <div class="topitem">
+                <div class="tn"><span class="cm ig">IG</span> Drongen voor / na</div>
+                <div class="perf">
+                  <span class="m best"><b>1.240</b><s>bereik</s></span>
+                  <span class="m"><b>63</b><s>reacties</s></span>
+                  <span class="m"><b>28</b><s>kliks</s></span>
+                </div>
+              </div>
+              <div class="topitem">
+                <div class="tn"><span class="cm fb">f</span> Droog venster</div>
+                <div class="perf">
+                  <span class="m"><b>610</b><s>bereik</s></span>
+                  <span class="m"><b>41</b><s>reacties</s></span>
+                  <span class="m"><b>9</b><s>kliks</s></span>
+                </div>
+              </div>
+              <p class="note tight">Je projectfoto&rsquo;s doen het consequent beter dan teamposts.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm"><use href="#i-calendar"/></svg>
+              <h3>Deze week</h3>
+              <span class="r"><button class="btn gho sm" data-go="kalender">Kalender</button></span>
+            </div>
+            <div class="pnl-b">
+              <div class="week">
+                <div class="d">M<span></span></div>
+                <div class="d has">D<span></span></div>
+                <div class="d">W<span></span></div>
+                <div class="d has">D<span></span></div>
+                <div class="d today dr">V<span></span></div>
+                <div class="d">Z<span></span></div>
+                <div class="d">Z<span></span></div>
+              </div>
+              <p class="note tight">2 ingepland, 1 concept wacht op goedkeuring.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--accent)"><use href="#i-brand"/></svg>
+              <h3>Merkbrein</h3>
+            </div>
+            <div class="pnl-b">
+              <div class="ring">
+                <span class="g"><i>78%</i></span>
+                <p class="note" style="margin:0">Vul je bewijspunten aan en elke suggestie wordt scherper.</p>
+              </div>
+              <button class="btn blk" style="margin-top:13px" data-go="merkbrein">Setup afronden</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 ZELF STARTEN ========== -->
+  <section class="scr" id="scr-nieuw" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <div class="crumb" data-go="vandaag"><svg class="ic xs"><use href="#i-chevl"/></svg> Bibliotheek</div>
+        <h1 class="srf">Nieuwe social post</h1>
+      </div>
+      <div class="acts">
+        <span class="tag">Herkomst &middot; Jij</span>
+        <button class="btn gho"><svg class="ic sm"><use href="#i-x"/></svg> Verwijderen</button>
+      </div>
+    </div>
+
+    <div class="scrollarea">
+      <div class="cols">
+        <div>
+          <div class="pnl" style="margin-bottom:20px">
+            <div class="pnl-b">
+              <label class="lbl" for="brief">Waarover gaat het?</label>
+              <textarea class="brief-in" id="brief" spellcheck="false">We hebben de achtertuin in Drongen afgewerkt — die met het verzonken terras en de oude appelboom die we bewaard hebben. Klant is superblij. Wil graag het voor-en-na tonen.</textarea>
+
+              <div style="margin-top:15px">
+                <span class="lbl">Kanalen</span>
+                <div style="display:flex;gap:7px;flex-wrap:wrap">
+                  <button class="chip" aria-pressed="true"><span class="cm fb">f</span> Facebook</button>
+                  <button class="chip" aria-pressed="true"><span class="cm ig">IG</span> Instagram</button>
+                  <button class="chip"><span class="cm li">in</span> LinkedIn</button>
+                  <button class="chip"><span class="cm gg">G</span> Bedrijfsprofiel</button>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:16px">
+                <button class="btn pri"><svg class="ic sm"><use href="#i-spark"/></svg> Genereren</button>
+                <button class="btn">Zelf schrijven</button>
+                <button class="btn"><svg class="ic sm"><use href="#i-image"/></svg> Foto&rsquo;s toevoegen</button>
+                <span class="prov" style="margin-top:0"><svg class="ic xs"><use href="#i-brand"/></svg> Automatisch gevoed door je merkbrein</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="eyebrow"><b>Gegenereerd concept</b> <span class="rule"></span> <span>variant 1 van 3</span></div>
+
+          <div class="pnl" style="margin-bottom:18px">
+            <div class="pnl-h">
+              <span class="cm fb lg">f</span>
+              <h3>Facebook</h3>
+              <span class="r">
+                <button class="btn gho sm"><svg class="ic sm"><use href="#i-refresh"/></svg> Herschrijf</button>
+                <button class="btn gho sm"><svg class="ic sm"><use href="#i-copy"/></svg></button>
+              </span>
+            </div>
+            <div class="post" style="border:0;border-radius:0">
+              <div class="post-h">
+                <span class="av">VT</span>
+                <span>
+                  <span class="n1">Verhaeghe Tuinen</span>
+                  <span class="n2">Gent &middot; <svg class="ic xs"><use href="#i-clock"/></svg> concept</span>
+                </span>
+              </div>
+              <div class="post-b">
+                <p>De appelboom blijft. Dat was het eerste wat de eigenaars in Drongen zeiden, en het heeft het hele ontwerp bepaald &mdash; een verzonken terras er pal naast, borders die tot tegen de stam komen, en een gazon dat eindelijk draineert.</p>
+                <p>Swipe voor het &ldquo;voor&rdquo;. Zes weken werk, één boom ouder dan het huis.</p>
+              </div>
+              <div class="shots">
+                <div class="shot ph-b"><span class="cap">Jouw foto &middot; voor</span></div>
+                <div class="shot ph-a"><span class="cap">Jouw foto &middot; na</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--ok)"><use href="#i-check"/></svg>
+              <h3>Feitencheck</h3>
+              <span class="r"><span class="tag hollow">2 beweringen</span></span>
+            </div>
+            <table class="tbl">
+              <tr><th>Bewering in dit concept</th><th style="width:34%">Bron</th><th style="width:22%">Status</th></tr>
+              <tr>
+                <td>Project Drongen, appelboom bewaard</td>
+                <td class="src">Jouw briefing</td>
+                <td><span class="tag ok"><svg class="ic xs"><use href="#i-check"/></svg> Van jou</span></td>
+              </tr>
+              <tr>
+                <td>Zes weken werk</td>
+                <td class="src">Niet in merkbrein</td>
+                <td><span class="tag warn">Bevestigen</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <aside class="rail">
+          <div class="pnl">
+            <div class="pnl-h"><h3>Instellingen</h3></div>
+            <div class="pnl-b">
+              <div class="fld"><span class="lbl">Variant</span><div class="sel">1 &mdash; Verhalend <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+              <div class="fld"><span class="lbl">Toon</span><div class="sel">Huisstijl (merkbrein) <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+              <div class="fld"><span class="lbl">Lengte</span><div class="sel">Gemiddeld <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+              <div class="fld" style="margin-bottom:0"><span class="lbl">Call to action</span><div class="sel">Geen &mdash; portfoliopost <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm"><use href="#i-image"/></svg>
+              <h3>Beeld</h3>
+            </div>
+            <div class="pnl-b">
+              <div style="display:grid;gap:7px">
+                <button class="btn blk"><svg class="ic sm"><use href="#i-media"/></svg> Kies uit Media</button>
+                <button class="btn blk"><svg class="ic sm"><use href="#i-upload"/></svg> Uploaden</button>
+                <button class="btn blk"><svg class="ic sm"><use href="#i-tmpl"/></svg> Op een template zetten</button>
+                <button class="btn blk gho" style="border:1px dashed var(--line-2)"><svg class="ic sm"><use href="#i-spark"/></svg> Achtergrond genereren</button>
+              </div>
+              <p class="note tight">Je eigen foto&rsquo;s eerst &mdash; gegenereerd beeld is het zwakst voor werk dat je fysiek levert.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="actionbar">
+      <button class="btn pri" data-toast="Ingepland voor dinsdag 15 september, 09:30"><svg class="ic sm"><use href="#i-check"/></svg> Goedkeuren &amp; inplannen</button>
+      <button class="btn" data-toast="Bewaard als concept">Bewaar als concept</button>
+      <span class="deliv own"><svg class="ic sm"><use href="#i-send"/></svg> Levering &middot; IC publiceert</span>
+    </div>
+  </section>
+
+  <!-- ========== 03 IDEE -> MATERIAAL ========== -->
+  <section class="scr" id="scr-materiaal" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <div class="crumb" data-go="vandaag"><svg class="ic xs"><use href="#i-chevl"/></svg> Idee&euml;n</div>
+        <h1 class="srf">Uitleg hemelwaterregels</h1>
+      </div>
+      <div class="acts">
+        <span class="tag accent">Herkomst &middot; IC</span>
+        <button class="btn"><svg class="ic sm"><use href="#i-refresh"/></svg> Opnieuw genereren</button>
+      </div>
+    </div>
+
+    <div style="padding:18px 24px 0;background:var(--surface)">
+      <div class="why" style="margin-bottom:16px;border-radius:0 var(--r-md) var(--r-md) 0">
+        <div class="wh"><svg class="ic xs"><use href="#i-spark"/></svg> Waarom dit idee bestaat</div>
+        <p>Twee vakbladen berichtten deze week over de Vlaamse vergunningswijziging &middot; je e-mail over regelgeving in maart had je hoogste openingsratio van het jaar &middot; de regels gelden vanaf 1 januari.
+          <span class="prov" style="margin-top:7px"><svg class="ic xs"><use href="#i-doc"/></svg> Sectornieuws &middot; Jouw historiek</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="tabs" id="mtabs" role="tablist">
+      <button role="tab" data-tab="li"><span class="cm li">in</span> LinkedIn</button>
+      <button role="tab" data-tab="mail" aria-selected="true"><span class="cm ml"><svg class="ic xs" style="width:10px;height:10px"><use href="#i-mail"/></svg></span> E-mail</button>
+      <button role="tab" data-tab="ads"><span class="cm gg">G</span> Zoekadvertentie</button>
+      <button role="tab" data-tab="soc"><span class="cm fb">f</span> Social-advertentie</button>
+      <button class="soon"><svg class="ic sm"><use href="#i-doc"/></svg> Blog <span class="fase">Fase 2</span></button>
+    </div>
+
+    <div class="scrollarea">
+      <div class="cols">
+        <div>
+          <!-- MAIL PANE -->
+          <div data-pane="mail">
+            <div class="eyebrow"><b>E-mailcampagne</b> <span class="rule"></span> <span>variant 1 van 3</span></div>
+
+            <div class="pnl" style="margin-bottom:18px">
+              <div class="pnl-b">
+                <div class="fld">
+                  <span class="lbl">Onderwerpregel</span>
+                  <input class="inp" value="Nieuwe hemelwaterregels vanaf januari — wat het betekent voor je tuin">
+                </div>
+                <div class="fld">
+                  <span class="lbl">Alternatieven</span>
+                  <div style="display:flex;gap:7px;flex-wrap:wrap">
+                    <button class="chip">Terras plannen in 2027? Lees dit eerst</button>
+                    <button class="chip">De vergunningswijziging waar niemand je over vertelt</button>
+                  </div>
+                </div>
+                <div class="fld" style="margin-bottom:0">
+                  <span class="lbl">Preheader</span>
+                  <input class="inp" value="Twee minuten over wat verandert, en wat het betekent als je werken plant.">
+                </div>
+              </div>
+            </div>
+
+            <div class="pnl">
+              <div class="pnl-h">
+                <h3>Broodtekst</h3>
+                <span class="r"><span class="prov" style="margin-top:0"><svg class="ic xs"><use href="#i-brand"/></svg> Huisstijl toegepast</span></span>
+              </div>
+              <div style="padding:0 15px 15px">
+                <div style="border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--surface)">
+                  <div class="shot ph-c" style="aspect-ratio:600/170"><span class="cap">Hoofdbeeld &middot; 600&times;240</span></div>
+                  <div style="padding:16px 18px 18px">
+                    <p style="margin:0 0 11px;font-size:15px;line-height:1.5;font-weight:700;color:var(--ink)">Vanaf 1 januari gelden er nieuwe regels voor de opvang van hemelwater op privépercelen in Vlaanderen.</p>
+                    <p style="margin:0 0 11px;font-size:13.5px;line-height:1.65;color:var(--ink-2)">Plan je volgend jaar een terras, een oprit of een andere verharding? Dan wijzigen de vergunningsvoorwaarden &mdash; en in de meeste gevallen wijzigen ze zo dat het je minder kost als je er nu al rekening mee houdt, in plaats van later te herontwerpen.</p>
+                    <div style="border:1px dashed var(--line-2);border-radius:var(--r-sm);padding:11px 13px;font-size:12.5px;color:var(--ink-3);display:flex;align-items:center;gap:8px">
+                      <svg class="ic sm"><use href="#i-spark"/></svg> Uitleg in drie punten &middot; gegenereerd
+                    </div>
+                    <div style="margin-top:15px"><span class="btn pri" style="pointer-events:none">Vraag je gratis prijsvoorstel</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADS PANE -->
+          <div data-pane="ads" hidden>
+            <div class="eyebrow"><b>Zoekadvertentie</b> <span class="rule"></span> <span>Google Ads &middot; 3 koppen, 2 beschrijvingen</span></div>
+            <div class="pnl" style="margin-bottom:18px">
+              <div class="pnl-b">
+                <div class="fld">
+                  <span class="lbl">Koppen &middot; max 30 tekens</span>
+                  <div style="display:grid;gap:7px">
+                    <div style="display:flex;gap:9px;align-items:center"><input class="inp" value="Hemelwaterregels 2027"><span class="tag">21/30</span></div>
+                    <div style="display:flex;gap:9px;align-items:center"><input class="inp" value="Terras plannen? Doe het juist"><span class="tag">27/30</span></div>
+                    <div style="display:flex;gap:9px;align-items:center"><input class="inp" value="Tuinaanleg Gent · 10j garantie"><span class="tag">29/30</span></div>
+                  </div>
+                </div>
+                <div class="fld" style="margin-bottom:0">
+                  <span class="lbl">Beschrijvingen &middot; max 90 tekens</span>
+                  <div style="display:grid;gap:7px">
+                    <div style="display:flex;gap:9px;align-items:center"><input class="inp" value="Nieuwe regels vanaf januari. Wij ontwerpen meteen conform. Prijsvoorstel binnen 48u."><span class="tag">82/90</span></div>
+                    <div style="display:flex;gap:9px;align-items:center"><input class="inp" value="Ontwerp en uitvoering in eigen huis. 40 projecten in en rond Gent."><span class="tag">64/90</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pnl">
+              <div class="pnl-h"><svg class="ic sm"><use href="#i-eye"/></svg><h3>Voorbeeld in Google</h3></div>
+              <div class="pnl-b">
+                <div style="border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;background:var(--surface-2)">
+                  <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">
+                    <span class="tag" style="font-size:9px">Advertentie</span>
+                    <span style="font-size:12px;color:var(--ink-2)">verhaeghetuinen.be</span>
+                  </div>
+                  <div style="font-size:17px;color:#1a58c4;line-height:1.3;margin-bottom:3px">Hemelwaterregels 2027 | Terras plannen? Doe het juist</div>
+                  <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Nieuwe regels vanaf januari. Wij ontwerpen meteen conform. Prijsvoorstel binnen 48u.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LI PANE -->
+          <div data-pane="li" hidden>
+            <div class="eyebrow"><b>LinkedIn</b> <span class="rule"></span> <span>variant 1 van 3</span></div>
+            <div class="pnl">
+              <div class="post" style="border:0;border-radius:0">
+                <div class="post-h">
+                  <span class="av">VT</span>
+                  <span>
+                    <span class="n1">Verhaeghe Tuinen</span>
+                    <span class="n2">142 volgers &middot; concept</span>
+                  </span>
+                  <span class="mk"><span class="cm li lg">in</span></span>
+                </div>
+                <div class="post-b">
+                  <p>Vanaf 1 januari wijzigen de Vlaamse regels rond hemelwater op privépercelen.</p>
+                  <p>Voor wie in 2027 een terras of oprit plant: de vergunningsvoorwaarden veranderen, en in de meeste gevallen kost het minder als je er nu al rekening mee houdt dan wanneer je later moet herontwerpen.</p>
+                  <p>We zetten de drie belangrijkste wijzigingen op een rij &mdash; link in de comments.</p>
+                </div>
+                <div class="shots" style="grid-template-columns:1fr">
+                  <div class="shot ph-c" style="aspect-ratio:1200/560"><span class="cap">Hoofdbeeld</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOC PANE -->
+          <div data-pane="soc" hidden>
+            <div class="eyebrow"><b>Social-advertentie</b> <span class="rule"></span> <span>Meta &middot; feed</span></div>
+            <div class="pnl">
+              <div class="pnl-b">
+                <div class="fld"><span class="lbl">Primaire tekst</span><input class="inp" value="Nieuwe hemelwaterregels vanaf januari — plan je terras nu goed."></div>
+                <div class="fld"><span class="lbl">Kop</span><input class="inp" value="Tuinaanleg conform de nieuwe regels"></div>
+                <div class="fld" style="margin-bottom:0"><span class="lbl">Linkbeschrijving</span><input class="inp" value="Prijsvoorstel binnen 48 uur · 10 jaar plantgarantie"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pnl" style="margin-top:18px">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--ok)"><use href="#i-check"/></svg>
+              <h3>Feitencheck</h3>
+              <span class="r"><span class="tag ok">Alles bevestigd</span></span>
+            </div>
+            <table class="tbl">
+              <tr><th>Bewering</th><th style="width:34%">Bron</th><th style="width:22%">Status</th></tr>
+              <tr><td>Regels gelden vanaf 1 januari</td><td class="src">Sectornieuws &middot; 9 sep</td><td><span class="tag ok"><svg class="ic xs"><use href="#i-check"/></svg> Bevestigd</span></td></tr>
+              <tr><td>Prijsvoorstel binnen 48 uur</td><td class="src">Merkbrein &middot; bewijspunten</td><td><span class="tag ok"><svg class="ic xs"><use href="#i-check"/></svg> Bevestigd</span></td></tr>
+              <tr><td>10 jaar plantgarantie</td><td class="src">Merkbrein &middot; bewijspunten</td><td><span class="tag ok"><svg class="ic xs"><use href="#i-check"/></svg> Bevestigd</span></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <aside class="rail">
+          <div class="pnl">
+            <div class="pnl-h"><h3>Instellingen</h3></div>
+            <div class="pnl-b">
+              <div class="fld"><span class="lbl">Doelgroep</span><div class="sel">Bestaande klanten &middot; 340 <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+              <div class="fld"><span class="lbl">Toon</span><div class="sel">Huisstijl (merkbrein) <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+              <div class="fld" style="margin-bottom:0"><span class="lbl">Lengte</span><div class="sel">Kort &mdash; 180 woorden <svg class="ic sm"><use href="#i-chev"/></svg></div></div>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--accent)"><use href="#i-spark"/></svg>
+              <h3>Leert van jou</h3>
+            </div>
+            <div class="pnl-b">
+              <p class="note">Je laatste zes goedkeuringen waren korter en begonnen met de wijziging, niet met de aanbieding. Hier toegepast.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm"><use href="#i-mail"/></svg>
+              <h3>Jouw e-mailtool</h3>
+            </div>
+            <div class="pnl-b">
+              <div class="sel" style="cursor:default">
+                <span style="display:flex;align-items:center;gap:8px"><span class="cm ml">M</span> Mailchimp</span>
+                <span class="fase" style="margin-left:auto">Fase 2</span>
+              </div>
+              <p class="note tight">Ingesteld bij de onboarding. Rechtstreeks als concept doorsturen komt in fase 2; voorlopig exporteer je.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="actionbar" id="mailbar">
+      <button class="btn pri" data-toast="HTML gedownload — klaar om in Mailchimp te plakken"><svg class="ic sm"><use href="#i-down"/></svg> HTML downloaden</button>
+      <button class="btn" data-toast="Gekopieerd met opmaak"><svg class="ic sm"><use href="#i-copy"/></svg> Kopi&euml;ren met opmaak</button>
+      <button class="btn" data-toast="Gekopieerd als platte tekst">Platte tekst</button>
+      <button class="btn gho" style="border:1px dashed var(--line-2)"><svg class="ic sm"><use href="#i-send"/></svg> Naar Mailchimp <span class="fase">Fase 2</span></button>
+      <span class="deliv"><svg class="ic sm"><use href="#i-lock"/></svg> Levering &middot; jij verstuurt</span>
+    </div>
+  </section>
+
+  <!-- ========== 04 KALENDER ========== -->
+  <section class="scr" id="scr-kalender" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">September 2026</h1>
+        <div class="sub">6 gepland &middot; 3 concepten &middot; 4 ankerpunten</div>
+      </div>
+      <div class="acts">
+        <div style="display:flex;gap:2px">
+          <button class="btn" style="border-radius:var(--r-sm) 0 0 var(--r-sm)"><svg class="ic sm"><use href="#i-chevl"/></svg></button>
+          <button class="btn" style="border-radius:0 var(--r-sm) var(--r-sm) 0"><svg class="ic sm"><use href="#i-chevr"/></svg></button>
+        </div>
+        <button class="btn">Alle kanalen <svg class="ic sm"><use href="#i-chev"/></svg></button>
+        <button class="btn">Alle herkomst <svg class="ic sm"><use href="#i-chev"/></svg></button>
+        <button class="btn pri" data-toast="Plan gemaakt — 7 nieuwe voorstellen in de wachtrij"><svg class="ic sm"><use href="#i-spark"/></svg> Plan de komende 30 dagen</button>
+      </div>
+    </div>
+
+    <div class="scrollarea">
+      <div class="cols">
+        <div>
+          <div class="cal">
+            <div class="dow">Ma</div><div class="dow">Di</div><div class="dow">Wo</div><div class="dow">Do</div><div class="dow">Vr</div><div class="dow">Za</div><div class="dow">Zo</div>
+
+            <div class="day out"><span class="dn">31</span></div>
+            <div class="day"><span class="dn">1</span><span class="ev pub"><span class="cm fb">f</span> <span class="lb">Droog venster</span></span></div>
+            <div class="day"><span class="dn">2</span></div>
+            <div class="day"><span class="dn">3</span><span class="ev pub"><span class="cm ig">IG</span> <span class="lb">Drongen voor/na</span></span></div>
+            <div class="day"><span class="dn">4</span><span class="ev sch"><span class="cm ml">M</span> <span class="lb">Najaars&shy;onderhoud</span></span></div>
+            <div class="day"><span class="dn">5</span></div>
+            <div class="day"><span class="dn">6</span></div>
+
+            <div class="day"><span class="dn">7</span><span class="ev sch"><span class="cm gg">G</span> <span class="lb">Garantie</span></span></div>
+            <div class="day"><span class="dn">8</span><span class="ev anc"><svg class="ic xs"><use href="#i-sun"/></svg> <span class="lb">Regen voorspeld</span></span></div>
+            <div class="day"><span class="dn">9</span><span class="ev sch"><span class="cm fb">f</span> <span class="lb">Winter&shy;klaar</span></span></div>
+            <div class="day"><span class="dn">10</span></div>
+            <div class="day today"><span class="dn">11</span><span class="ev drf"><span class="cm fb">f</span> <span class="lb">Vacature tuinier</span></span></div>
+            <div class="day"><span class="dn">12</span></div>
+            <div class="day"><span class="dn">13</span></div>
+
+            <div class="day"><span class="dn">14</span></div>
+            <div class="day"><span class="dn">15</span><span class="ev drf" data-go="materiaal"><span class="cm ml">M</span> <span class="lb">Hemel&shy;water</span></span></div>
+            <div class="day"><span class="dn">16</span></div>
+            <div class="day"><span class="dn">17</span><span class="ev anc"><svg class="ic xs"><use href="#i-event"/></svg> <span class="lb">Open Tuindagen</span></span><span class="ev drf"><span class="cm ig">IG</span> <span class="lb">Onze stand</span></span></div>
+            <div class="day"><span class="dn">18</span></div>
+            <div class="day"><span class="dn">19</span></div>
+            <div class="day"><span class="dn">20</span></div>
+
+            <div class="day"><span class="dn">21</span><span class="ev drf"><span class="cm li">in</span> <span class="lb">Regel&shy;geving</span></span></div>
+            <div class="day"><span class="dn">22</span><span class="ev anc"><svg class="ic xs"><use href="#i-sun"/></svg> <span class="lb">Start herfst</span></span></div>
+            <div class="day"><span class="dn">23</span></div>
+            <div class="day"><span class="dn">24</span></div>
+            <div class="day"><span class="dn">25</span></div>
+            <div class="day"><span class="dn">26</span></div>
+            <div class="day"><span class="dn">27</span></div>
+          </div>
+
+          <div class="legend">
+            <span class="li"><span class="sw pub"></span> Gepubliceerd</span>
+            <span class="li"><span class="sw sch"></span> Ingepland</span>
+            <span class="li"><span class="sw drf"></span> Concept &middot; wacht op goedkeuring</span>
+            <span class="li"><span class="sw anc"></span> Ankerpunt &middot; gevonden door IC</span>
+          </div>
+        </div>
+
+        <aside class="rail">
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm"><use href="#i-idea"/></svg>
+              <h3>Wachtrij</h3>
+              <span class="r"><span class="tag">4</span></span>
+            </div>
+            <div class="pnl-b">
+              <div class="qitem oc">
+                <span class="tag accent">IC</span>
+                <div class="qt">Concurrenten adverteren op prijs &rarr; zet in op garantie</div>
+              </div>
+              <div class="qitem ic">
+                <span class="tag accent">IC</span>
+                <div class="qt">Voorverkoop winteronderhoudsplan</div>
+              </div>
+              <div class="qitem">
+                <span class="tag">Jij</span>
+                <div class="qt">Vacature tweede tuinier</div>
+              </div>
+              <div class="qitem">
+                <span class="tag">Jij</span>
+                <div class="qt">Nieuwe bestelwagen, nieuwe belettering</div>
+              </div>
+              <p class="note tight"><svg class="ic xs" style="vertical-align:-2px"><use href="#i-drag"/></svg> Sleep op een dag om in te plannen.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <svg class="ic sm" style="color:var(--signal)"><use href="#i-event"/></svg>
+              <h3>Ankerpunten</h3>
+            </div>
+            <div class="pnl-b">
+              <div class="sig">
+                <div class="sigrow"><span class="dot hot"></span><span><b>8 sep</b> &mdash; regen voorspeld, einde droog venster</span></div>
+                <div class="sigrow"><span class="dot hot"></span><span><b>17 sep</b> &mdash; Open Tuindagen, Oost-Vlaanderen</span></div>
+                <div class="sigrow"><span class="dot"></span><span><b>22 sep</b> &mdash; start van de herfst</span></div>
+                <div class="sigrow"><span class="dot"></span><span><b>1 jan</b> &mdash; hemelwaterregels van kracht</span></div>
+              </div>
+              <p class="note tight">Gedateerde feiten die IC vond. Ze staan op hetzelfde raster als je content, zodat het plan een reden heeft.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 BIBLIOTHEEK ========== -->
+  <section class="scr" id="scr-bibliotheek" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">Bibliotheek</h1>
+        <div class="sub">218 items &middot; 34 voorgesteld door IC, 184 door jou</div>
+      </div>
+      <div class="acts">
+        <button class="btn"><svg class="ic sm"><use href="#i-search"/></svg> Zoeken</button>
+        <button class="btn pri" data-go="nieuw"><svg class="ic sm"><use href="#i-plus"/></svg> Nieuw</button>
+      </div>
+    </div>
+
+    <div class="filterbar" id="libfilter">
+      <button class="chip" aria-pressed="true" data-f="all">Alles</button>
+      <button class="chip" data-f="post">Posts</button>
+      <button class="chip" data-f="ad">Advertentiecampagnes</button>
+      <button class="chip" data-f="mail">E-mails</button>
+      <button class="chip" data-f="asset">Beelden</button>
+      <span class="div"></span>
+      <span class="fl">Herkomst</span>
+      <button class="chip" aria-pressed="true" data-o="all">Alle</button>
+      <button class="chip" data-o="ic">Voorgesteld door IC</button>
+      <button class="chip" data-o="you">Door jou gemaakt</button>
+      <span class="div"></span>
+      <span class="fl">Sorteer</span>
+      <button class="chip" aria-pressed="true">Nieuwste</button>
+      <button class="chip">Beste prestatie</button>
+    </div>
+
+    <div class="scrollarea">
+      <div class="libgrid" id="libgrid">
+        <article class="lib" data-t="post" data-o="ic">
+          <div class="th ph-b"><span class="cm fb">f</span><span class="og ic">IC</span></div>
+          <div class="bd">
+            <div class="nm">Droog venster &middot; najaarsonderhoud</div>
+            <div class="dt">Gepubliceerd 1 sep</div>
+            <div class="pf">
+              <span class="m"><b>610</b><s>bereik</s></span>
+              <span class="m"><b>41</b><s>react.</s></span>
+              <span class="m"><b>9</b><s>kliks</s></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="post" data-o="you">
+          <div class="th ph-a"><span class="cm ig">IG</span><span class="og">Jij</span></div>
+          <div class="bd">
+            <div class="nm">Drongen voor / na</div>
+            <div class="dt">Gepubliceerd 3 sep &middot; 2 kanalen</div>
+            <div class="pf">
+              <span class="m best"><b>1.240</b><s>bereik</s></span>
+              <span class="m"><b>63</b><s>react.</s></span>
+              <span class="m"><b>28</b><s>kliks</s></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="ad" data-o="ic">
+          <div class="th doc"><span class="og ic">IC</span><svg class="ic"><use href="#i-search"/></svg><span class="tag hollow">Ge&euml;xporteerd</span></div>
+          <div class="bd">
+            <div class="nm">Garantie &middot; zoekcampagne</div>
+            <div class="dt">Ingepland 7 sep</div>
+            <div class="pf">
+              <span class="m"><b>&mdash;</b><s>via jouw account</s></span>
+              <span class="m"><b>0</b><s>kliks</s></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="mail" data-o="ic">
+          <div class="th doc"><span class="og ic">IC</span><svg class="ic"><use href="#i-mail"/></svg><span class="tag warn">Wacht op goedkeuring</span></div>
+          <div class="bd">
+            <div class="nm">Hemelwaterregels &middot; e-mail</div>
+            <div class="dt">Concept &middot; 15 sep</div>
+            <div class="pf">
+              <span class="m"><b>340</b><s>doelgroep</s></span>
+              <span class="m"><b>&mdash;</b><s>nog niet verstuurd</s></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="post" data-o="you">
+          <div class="th ph-e"><span class="cm fb">f</span><span class="og">Jij</span></div>
+          <div class="bd">
+            <div class="nm">Vacature tuinier</div>
+            <div class="dt">Concept &middot; 3 kanalen</div>
+            <div class="pf">
+              <span class="m"><b>&mdash;</b><s>nog niet live</s></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="asset" data-o="you">
+          <div class="th doc"><span class="og">Jij</span><svg class="ic"><use href="#i-tmpl"/></svg></div>
+          <div class="bd">
+            <div class="nm">Vierkante template &middot; project</div>
+            <div class="dt">Template &middot; 14&times; gebruikt</div>
+            <div class="pf"><span class="m"><b>14</b><s>keer gebruikt</s></span></div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="asset" data-o="you">
+          <div class="th ph-d"><span class="og">Jij</span></div>
+          <div class="bd">
+            <div class="nm">Fotoset lente 2026</div>
+            <div class="dt">Upload &middot; 38 beelden</div>
+            <div class="pf"><span class="m"><b>38</b><s>beelden</s></span></div>
+          </div>
+        </article>
+
+        <article class="lib" data-t="ad" data-o="ic">
+          <div class="th ph-c"><span class="cm fb">f</span><span class="og ic">IC</span></div>
+          <div class="bd">
+            <div class="nm">Lente-actie &middot; Meta-campagne</div>
+            <div class="dt">Gepubliceerd 12 mrt</div>
+            <div class="pf">
+              <span class="m best"><b>3.180</b><s>bereik</s></span>
+              <span class="m"><b>112</b><s>kliks</s></span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="note" style="margin-top:16px;max-width:70ch">Bereik en reacties komen van het platform. <b style="color:var(--ink)">Kliks</b> komen van onze eigen korte link &mdash; daardoor het enige cijfer dat over social, e-mail én advertenties op dezelfde manier gemeten wordt, ook waar we geen toegang tot platformcijfers hebben.</p>
+    </div>
+  </section>
+
+  <!-- ========== 06 MERKBREIN ========== -->
+  <section class="scr" id="scr-merkbrein" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">Merkbrein</h1>
+        <div class="sub">78% volledig &middot; 2 dagen geleden ververst</div>
+      </div>
+      <div class="acts">
+        <button class="btn"><svg class="ic sm"><use href="#i-refresh"/></svg> Website opnieuw scannen</button>
+        <button class="btn pri" data-toast="Merkbrein bewaard"><svg class="ic sm"><use href="#i-check"/></svg> Bewaren</button>
+      </div>
+    </div>
+
+    <div class="scrollarea">
+      <div class="bb">
+        <nav class="bbnav" id="bbnav" role="tablist">
+          <button role="tab" class="done" aria-selected="true" data-bb="pos"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Positionering</button>
+          <button role="tab" class="done" data-bb="pos"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Diensten</button>
+          <button role="tab" class="done" data-bb="pos"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Sterktes</button>
+          <button role="tab" data-bb="proof"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Bewijspunten</button>
+          <button role="tab" class="done" data-bb="pos"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Doelgroep</button>
+          <button role="tab" class="done" data-bb="tone"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Tone of voice</button>
+          <button role="tab" data-bb="proof"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Concurrenten</button>
+          <button role="tab" data-bb="proof"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Seizoenaliteit</button>
+          <button role="tab" class="done" data-bb="style"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Huisstijl</button>
+          <button role="tab" data-bb="proof"><span class="tk"><svg class="ic"><use href="#i-check"/></svg></span> Referentiecampagnes</button>
+        </nav>
+
+        <div>
+          <!-- POSITIONERING -->
+          <div data-bbpane="pos">
+            <div class="eyebrow"><b>Positionering</b> <span class="rule"></span> <span>opgesteld door IC, jij corrigeert</span></div>
+            <div class="pnl" style="margin-bottom:18px">
+              <div class="pnl-b">
+                <div class="fld">
+                  <span class="lbl">In één zin</span>
+                  <div class="field">Een Gents tuinaanlegbedrijf voor huiseigenaars die hun tuin één keer goed ontworpen willen zien en daarna jarenlang degelijk onderhouden &mdash; geen goedkope seizoensopkuis.
+                    <span class="prov"><svg class="ic xs"><use href="#i-doc"/></svg> Uit /over-ons, /realisaties</span>
+                  </div>
+                </div>
+                <div class="fld" style="margin-bottom:0">
+                  <span class="lbl">Sterktes die IC vond</span>
+                  <div style="display:flex;gap:7px;flex-wrap:wrap">
+                    <span class="chip flat">Langetermijngarantie</span>
+                    <span class="chip flat">Ontwerp én uitvoering in eigen huis</span>
+                    <span class="chip flat">40 gedocumenteerde projecten</span>
+                    <span class="chip flat">Zelfde ploeg van prijsvoorstel tot oplevering</span>
+                  </div>
+                  <span class="prov"><svg class="ic xs"><use href="#i-check"/></svg> Door jou bevestigd &middot; 14 aug</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pnl">
+              <div class="pnl-h">
+                <svg class="ic sm" style="color:var(--accent)"><use href="#i-brand"/></svg>
+                <h3>Bewijspunten</h3>
+                <span class="r"><span class="tag accent">De enige feiten die IC mag beweren</span></span>
+              </div>
+              <table class="tbl">
+                <tr><th>Feit</th><th style="width:26%">Waarde</th><th style="width:30%">Bron</th></tr>
+                <tr><td>Plantgarantie</td><td><b>10 jaar</b></td><td class="src">Website &middot; /garantie</td></tr>
+                <tr><td>Reactietijd prijsvoorstel</td><td><b>48 uur</b></td><td class="src">Jij &middot; 14 aug</td></tr>
+                <tr><td>Google-reviewscore</td><td><b>4,8</b> / 61 reviews</td><td class="src">Bedrijfsprofiel</td></tr>
+                <tr><td>Opgericht</td><td><b>2009</b></td><td class="src">Website &middot; footer</td></tr>
+                <tr><td>Werkgebied</td><td><b>25 km</b> rond Gent</td><td class="src">Jij &middot; 14 aug</td></tr>
+              </table>
+              <div style="padding:12px 15px;border-top:1px dashed var(--line-2)">
+                <button class="btn gho sm"><svg class="ic sm"><use href="#i-plus"/></svg> Bewijspunt toevoegen &mdash; elk punt maakt elke suggestie specifieker</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- BEWIJSPUNTEN (alias) -->
+          <div data-bbpane="proof" hidden>
+            <div class="eyebrow"><b>Nog aan te vullen</b> <span class="rule"></span> <span>4 onderdelen</span></div>
+            <div class="pnl">
+              <div class="pnl-b">
+                <p class="note" style="margin-bottom:14px">Deze onderdelen zijn nog niet ingevuld. Elk ervan maakt de suggesties concreter &mdash; en de eerste twee hebben de grootste impact.</p>
+                <div style="display:grid;gap:9px">
+                  <div class="qitem oc"><div class="qt">Bewijspunten &mdash; 5 van de 8 ingevuld</div></div>
+                  <div class="qitem"><div class="qt">Concurrenten &mdash; 2 gevonden, nog te bevestigen</div></div>
+                  <div class="qitem"><div class="qt">Seizoenaliteit &mdash; niet ingevuld</div></div>
+                  <div class="qitem"><div class="qt">Referentiecampagnes &mdash; niets geüpload</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TONE -->
+          <div data-bbpane="tone" hidden>
+            <div class="eyebrow"><b>Tone of voice</b> <span class="rule"></span> <span>regels, geen gevoel</span></div>
+            <div class="pnl" style="margin-bottom:18px">
+              <div class="pnl-b">
+                <div class="fld">
+                  <span class="lbl">Kenmerken</span>
+                  <div style="display:flex;gap:7px;flex-wrap:wrap">
+                    <span class="chip flat">Recht voor de raap</span>
+                    <span class="chip flat">Praktisch</span>
+                    <span class="chip flat">Warm, niet grappig</span>
+                    <span class="chip flat">Geen superlatieven</span>
+                    <span class="chip flat">Nederlands &middot; je-vorm</span>
+                    <button class="chip" style="border-style:dashed"><svg class="ic xs"><use href="#i-plus"/></svg> Toevoegen</button>
+                  </div>
+                </div>
+                <div class="fld" style="margin-bottom:0">
+                  <span class="lbl">Nooit zeggen</span>
+                  <div class="field" style="color:var(--warn);background:var(--warn-soft);border-color:var(--warn-soft)">&ldquo;goedkoop&rdquo;, &ldquo;aanbieding van de eeuw&rdquo;, &ldquo;de beste van Vlaanderen&rdquo;</div>
+                </div>
+              </div>
+            </div>
+            <div class="pnl">
+              <div class="pnl-h"><svg class="ic sm"><use href="#i-eye"/></svg><h3>Zo klinkt dat</h3></div>
+              <div class="pnl-b">
+                <p style="margin:0 0 10px;font-size:14.5px;line-height:1.6;color:var(--ink)" class="srf">&ldquo;Negen droge dagen op rij. Dat is het laatste goede moment om je tuin winterklaar te zetten voor de regen doorzet.&rdquo;</p>
+                <p class="note">Gegenereerd met de regels hierboven. Pas een kenmerk aan en dit voorbeeld verandert mee.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- HUISSTIJL -->
+          <div data-bbpane="style" hidden>
+            <div class="eyebrow"><b>Huisstijl</b> <span class="rule"></span> <span>uit je website gehaald</span></div>
+            <div class="pnl" style="margin-bottom:18px">
+              <div class="pnl-b">
+                <div class="fld">
+                  <span class="lbl">Kleurenpalet</span>
+                  <div class="swatches">
+                    <span class="sw2" style="background:#2F5D3F"></span>
+                    <span class="sw2" style="background:#7FA778"></span>
+                    <span class="sw2" style="background:#E8E2D2"></span>
+                    <span class="sw2" style="background:#3A3733"></span>
+                    <span class="sw2" style="background:#C8892F"></span>
+                  </div>
+                  <span class="prov"><svg class="ic xs"><use href="#i-doc"/></svg> Uit logo en website</span>
+                </div>
+                <div class="fld" style="margin-bottom:0">
+                  <span class="lbl">Fotobibliotheek</span>
+                  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:7px">
+                    <div class="shot ph-a" style="border-radius:var(--r-sm)"></div>
+                    <div class="shot ph-b" style="border-radius:var(--r-sm)"></div>
+                    <div class="shot ph-e" style="border-radius:var(--r-sm)"></div>
+                    <div class="shot ph-d" style="border-radius:var(--r-sm)"></div>
+                    <div class="shot ph-c" style="border-radius:var(--r-sm)"></div>
+                    <div class="shot" style="border-radius:var(--r-sm);background:var(--surface-2);border:1px dashed var(--line-2);display:grid;place-items:center;color:var(--ink-4)">
+                      <svg class="ic"><use href="#i-plus"/></svg>
+                    </div>
+                  </div>
+                  <span class="prov">38 beelden &middot; 12 gebruikt in content</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<div class="picker" id="picker" role="group" aria-label="Thema">
+  <span class="pl">Thema</span>
+  <div class="sws" id="sws">
+    <button class="tsw" data-accent="pine"   aria-pressed="true" title="Pine"   aria-label="Pine"><i style="--a:#1F4436;--s:#8A5E17"></i></button>
+    <button class="tsw" data-accent="clay"   title="Clay"   aria-label="Clay"><i style="--a:#9C4A24;--s:#3D6B4E"></i></button>
+    <button class="tsw" data-accent="cobalt" title="Cobalt" aria-label="Cobalt"><i style="--a:#1F4FD8;--s:#A0640B"></i></button>
+    <button class="tsw" data-accent="ink"    title="Ink"    aria-label="Ink"><i style="--a:#1C1C1A;--s:#96661E"></i></button>
+    <button class="tsw" data-accent="plum"   title="Plum"   aria-label="Plum"><i style="--a:#5B2A50;--s:#9E5330"></i></button>
+  </div>
+  <span class="pname" id="pname">Pine</span>
+  <span class="pdiv"></span>
+  <button class="tmode" id="tmode"><svg class="ic sm" id="tmodeic"><use href="#i-sun"/></svg><span id="tmodelbl">Systeem</span></button>
+</div>
+
+<div class="toast" id="toast"><svg class="ic sm"><use href="#i-check"/></svg><span id="toastmsg"></span></div>
+
+<script>
+(function(){
+  var scr = {}, order = ['vandaag','nieuw','materiaal','kalender','bibliotheek','merkbrein'];
+  order.forEach(function(k){ scr[k] = document.getElementById('scr-'+k); });
+
+  function show(key){
+    if (!scr[key]) return;
+    order.forEach(function(k){ scr[k].hidden = (k !== key); });
+    document.querySelectorAll('#scrnav button').forEach(function(b){
+      b.setAttribute('aria-current', b.dataset.go === key ? 'true' : 'false');
+    });
+    document.querySelectorAll('.nav a').forEach(function(a){
+      var owns = (a.dataset.nav || '').split(' ').indexOf(key) !== -1;
+      if (owns) a.setAttribute('aria-current','page');
+      else a.removeAttribute('aria-current');
+    });
+    closeMenu();
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  // any element with data-go navigates
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-go]');
+    if (t) { e.stopPropagation(); show(t.dataset.go); return; }
+    var ts = e.target.closest('[data-toast]');
+    if (ts) { toast(ts.dataset.toast); return; }
+  });
+
+  // create menu
+  var nb = document.getElementById('newbtn'), nm = document.getElementById('newmenu');
+  function closeMenu(){ nm.hidden = true; nb.setAttribute('aria-expanded','false'); }
+  nb.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nm.hidden;
+    nm.hidden = !open;
+    nb.setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', function(e){
+    if (!nm.hidden && !nm.contains(e.target) && e.target !== nb) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+
+  // channel tabs on screen 03
+  var tabs = document.getElementById('mtabs');
+  tabs.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-tab]');
+    if (!b) return;
+    tabs.querySelectorAll('button').forEach(function(x){ x.removeAttribute('aria-selected'); });
+    b.setAttribute('aria-selected','true');
+    document.querySelectorAll('[data-pane]').forEach(function(p){ p.hidden = (p.dataset.pane !== b.dataset.tab); });
+    var bar = document.getElementById('mailbar');
+    bar.hidden = false;
+    var isMail = b.dataset.tab === 'mail';
+    var isAd = b.dataset.tab === 'ads' || b.dataset.tab === 'soc';
+    bar.innerHTML = isMail
+      ? '<button class="btn pri" data-toast="HTML gedownload — klaar om in Mailchimp te plakken"><svg class="ic sm"><use href="#i-down"/></svg> HTML downloaden</button>'
+        + '<button class="btn" data-toast="Gekopieerd met opmaak"><svg class="ic sm"><use href="#i-copy"/></svg> Kopiëren met opmaak</button>'
+        + '<button class="btn" data-toast="Gekopieerd als platte tekst">Platte tekst</button>'
+        + '<button class="btn gho" style="border:1px dashed var(--line-2)"><svg class="ic sm"><use href="#i-send"/></svg> Naar Mailchimp <span class="fase">Fase 2</span></button>'
+        + '<span class="deliv"><svg class="ic sm"><use href="#i-lock"/></svg> Levering · jij verstuurt</span>'
+      : isAd
+      ? '<button class="btn pri" data-toast="Campagnebriefing geëxporteerd"><svg class="ic sm"><use href="#i-down"/></svg> Campagnebriefing exporteren</button>'
+        + '<button class="btn" data-toast="Alle teksten gekopieerd"><svg class="ic sm"><use href="#i-copy"/></svg> Teksten kopiëren</button>'
+        + '<button class="btn gho" style="border:1px dashed var(--line-2)"><svg class="ic sm"><use href="#i-send"/></svg> Als gepauzeerd concept <span class="fase">Fase 2</span></button>'
+        + '<span class="deliv"><svg class="ic sm"><use href="#i-lock"/></svg> Levering · jij plaatst</span>'
+      : '<button class="btn pri" data-toast="Ingepland voor maandag 21 september, 08:45"><svg class="ic sm"><use href="#i-check"/></svg> Goedkeuren &amp; inplannen</button>'
+        + '<button class="btn" data-toast="Bewaard als concept">Bewaar als concept</button>'
+        + '<span class="deliv own"><svg class="ic sm"><use href="#i-send"/></svg> Levering · IC publiceert</span>';
+  });
+
+  // brand brain section tabs
+  var bbn = document.getElementById('bbnav');
+  bbn.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-bb]');
+    if (!b) return;
+    bbn.querySelectorAll('button').forEach(function(x){ x.removeAttribute('aria-selected'); });
+    b.setAttribute('aria-selected','true');
+    document.querySelectorAll('[data-bbpane]').forEach(function(p){ p.hidden = (p.dataset.bbpane !== b.dataset.bb); });
+  });
+
+  // library filters
+  var lf = document.getElementById('libfilter');
+  lf.addEventListener('click', function(e){
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    var group = b.dataset.f ? '[data-f]' : (b.dataset.o ? '[data-o]' : null);
+    if (group) {
+      lf.querySelectorAll(group).forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+    } else {
+      var sibs = Array.prototype.filter.call(lf.children, function(x){
+        return x.classList && x.classList.contains('chip') && !x.dataset.f && !x.dataset.o;
+      });
+      sibs.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+    }
+    b.setAttribute('aria-pressed','true');
+    var type = (lf.querySelector('[data-f][aria-pressed="true"]') || {dataset:{f:'all'}}).dataset.f;
+    var orig = (lf.querySelector('[data-o][aria-pressed="true"]') || {dataset:{o:'all'}}).dataset.o;
+    document.querySelectorAll('#libgrid .lib').forEach(function(c){
+      var okT = (type === 'all' || c.dataset.t === type);
+      var okO = (orig === 'all' || c.dataset.o === orig);
+      c.hidden = !(okT && okO);
+    });
+  });
+
+  // toast
+  var tEl = document.getElementById('toast'), tMsg = document.getElementById('toastmsg'), tTimer;
+  function toast(msg){
+    tMsg.textContent = msg;
+    tEl.classList.add('on');
+    clearTimeout(tTimer);
+    tTimer = setTimeout(function(){ tEl.classList.remove('on'); }, 2600);
+  }
+
+
+  // ---- theme picker ----
+  var NAMES = {pine:'Pine', clay:'Clay', cobalt:'Cobalt', ink:'Ink', plum:'Plum'};
+  var MODES = [
+    {v:'system', l:'Systeem', i:'#i-sun'},
+    {v:'light',  l:'Licht',   i:'#i-sun'},
+    {v:'dark',   l:'Donker',  i:'#i-eye'}
+  ];
+  var root = document.documentElement;
+  var sws = document.getElementById('sws');
+  var pname = document.getElementById('pname');
+  var tmode = document.getElementById('tmode');
+  var tmodelbl = document.getElementById('tmodelbl');
+  var tmodeic = document.getElementById('tmodeic');
+  var modeIdx = 0;
+
+  function store(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
+  function load(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+
+  function applyAccent(a){
+    if (a === 'pine') root.removeAttribute('data-accent');
+    else root.setAttribute('data-accent', a);
+    sws.querySelectorAll('.tsw').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.accent === a));
+    });
+    pname.textContent = NAMES[a] || 'Pine';
+    store('ic-accent', a);
+  }
+
+  function applyMode(i){
+    modeIdx = (i + MODES.length) % MODES.length;
+    var m = MODES[modeIdx];
+    if (m.v === 'system') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', m.v);
+    tmodelbl.textContent = m.l;
+    tmodeic.firstElementChild.setAttribute('href', m.i);
+    store('ic-mode', m.v);
+  }
+
+  sws.addEventListener('click', function(e){
+    var b = e.target.closest('.tsw');
+    if (b) applyAccent(b.dataset.accent);
+  });
+  tmode.addEventListener('click', function(){ applyMode(modeIdx + 1); });
+
+  var savedA = load('ic-accent');
+  applyAccent(NAMES[savedA] ? savedA : 'pine');
+  var savedM = load('ic-mode');
+  var mi = 0;
+  MODES.forEach(function(m, i){ if (m.v === savedM) mi = i; });
+  applyMode(mi);
+
+  // keep the floating picker clear of a screen's sticky action bar
+  function liftPicker(){
+    var bar = document.querySelector('.scr:not([hidden]) .actionbar');
+    var h = bar ? Math.round(bar.getBoundingClientRect().height) : 0;
+    root.style.setProperty('--barh', h + 'px');
+  }
+  var _show = show;
+  show = function(k){ _show(k); liftPicker(); };
+  window.addEventListener('resize', liftPicker);
+  liftPicker();
+
+  // keyboard: 1-6 jump between screens
+  document.addEventListener('keydown', function(e){
+    if (e.target.matches('input,textarea')) return;
+    var n = parseInt(e.key, 10);
+    if (n >= 1 && n <= 6) show(order[n-1]);
+  });
+})();
+</script>
+
+</body>
+</html>
