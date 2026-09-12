@@ -5,7 +5,7 @@ Single self-contained `index.html`; only webfonts are loaded externally.
 
 **Live:** https://arnaudbroes.github.io/inspiration-cloud-v2-mockup/
 
-Six screens, navigable via the sidebar, the top strip, or keys `1`–`6`:
+Eight screens, navigable via the sidebar, the top strip, or keys `1`–`8`:
 
 1. Vandaag — the suggestion feed
 2. Zelf starten — user-initiated composer
@@ -13,6 +13,8 @@ Six screens, navigable via the sidebar, the top strip, or keys `1`–`6`:
 4. Kalender — planning with IC-found anchor points
 5. Bibliotheek — both origins, with per-item performance
 6. Merkbrein — brand profile, proof points, tone of voice
+7. Media — photo library, with a WhatsApp/e-mail intake inbox
+8. Kanalen — connected channels and the WhatsApp allowlist
 
 Five colour themes (Pine, Clay, Cobalt, Ink, Plum) plus light/dark, via the
 floating picker at the bottom. Choices persist in `localStorage`.

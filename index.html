@@ -25,8 +25,8 @@ img{max-width:100%}
   --line-2:#C7CFC5;
   --ink:#131A17;
   --ink-2:#4A554E;
-  --ink-3:#656F68;
-  --ink-4:#6C7870;
+  --ink-3:#5F6962;
+  --ink-4:#646F67;
   --accent:#1F4436;
   --accent-2:#2C5D49;
   --accent-soft:#E5EEE8;
@@ -44,12 +44,13 @@ img{max-width:100%}
   --r-xs:3px; --r-sm:5px; --r-md:8px; --r-lg:12px;
   --on-accent:#FFFFFF;
   --on-ok:#FFFFFF;
+  --serp-link:#1A58C4;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --ground:#0E1210; --surface:#171C19; --surface-2:#1D2320; --surface-3:#232A26;
     --line:#2A322D; --line-2:#414B45;
-    --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#859089; --ink-4:#7A877F;
+    --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#8F9993; --ink-4:#87938C;
     --accent:#7FB79D; --accent-2:#96C7AF; --accent-soft:#182B23; --accent-line:#2E4A3C;
     --signal:#D3A45F; --signal-soft:#2C2418; --signal-line:#4A3B21;
     --ok:#79B48F; --ok-soft:#18251D; --warn:#CB8A70; --warn-soft:#2A1D17;
@@ -58,12 +59,13 @@ img{max-width:100%}
     --sh-pop:0 18px 44px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.4);
   --on-accent:#0C120F;
   --on-ok:#0C120F;
+  --serp-link:#8AB4F8;
   }
 }
 :root[data-theme="dark"]{
   --ground:#0E1210; --surface:#171C19; --surface-2:#1D2320; --surface-3:#232A26;
   --line:#2A322D; --line-2:#414B45;
-  --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#859089; --ink-4:#7A877F;
+  --ink:#E7EBE7; --ink-2:#AEB8B1; --ink-3:#8F9993; --ink-4:#87938C;
   --accent:#7FB79D; --accent-2:#96C7AF; --accent-soft:#182B23; --accent-line:#2E4A3C;
   --signal:#D3A45F; --signal-soft:#2C2418; --signal-line:#4A3B21;
   --ok:#79B48F; --ok-soft:#18251D; --warn:#CB8A70; --warn-soft:#2A1D17;
@@ -72,6 +74,7 @@ img{max-width:100%}
   --sh-pop:0 18px 44px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.4);
   --on-accent:#0C120F;
   --on-ok:#0C120F;
+  --serp-link:#8AB4F8;
 }
 
 *{box-sizing:border-box}
@@ -252,11 +255,11 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
   width:18px;height:18px;border-radius:4px;flex:0 0 auto;display:grid;place-items:center;
   font-size:8.5px;font-weight:800;color:#fff;letter-spacing:0;line-height:1;
 }
-.cm.fb{background:#1877F2}
+.cm.fb{background:#0E70F0}
 .cm.ig{background:linear-gradient(135deg,#F9CE34,#EE2A7B 55%,#6228D7)}
 .cm.li{background:#0A66C2}
-.cm.gg{background:#4285F4}
-.cm.ml{background:var(--ink-2)}
+.cm.gg{background:#206FF2}
+.cm.ml{background:#46534C}
 .cm.lg{width:22px;height:22px;font-size:10px;border-radius:5px}
 .chan{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-2);font-weight:500}
 
@@ -407,6 +410,98 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
   radial-gradient(115% 95% at 24% 18%,#DCE9D2 0,transparent 57%),
   radial-gradient(145% 125% at 78% 110%,#2F5540 0,transparent 63%),
   linear-gradient(150deg,#7FA184,#3E6349)}
+.ph-f{background:
+  radial-gradient(110% 90% at 70% 22%,#E7EFD9 0,transparent 55%),
+  radial-gradient(135% 115% at 24% 100%,#4A6B3C 0,transparent 62%),
+  linear-gradient(165deg,#9CB587,#57764C)}
+.ph-g{background:
+  radial-gradient(120% 100% at 34% 16%,#E2DCC8 0,transparent 56%),
+  radial-gradient(140% 120% at 76% 106%,#6C6248 0,transparent 62%),
+  linear-gradient(158deg,#B6AD8C,#7C7455)}
+.ph-h{background:
+  radial-gradient(105% 92% at 80% 20%,#D4E4EA 0,transparent 54%),
+  radial-gradient(140% 118% at 26% 104%,#3A5A50 0,transparent 62%),
+  linear-gradient(172deg,#88A79C,#456058)}
+.ph-blur{filter:blur(2.4px) saturate(.82)}
+.thumb{position:relative;overflow:hidden;border-radius:var(--r-md)}
+.thumb > i.bg{position:absolute;inset:0;display:block;transform:scale(1.06)}
+
+/* ============ media ============ */
+.cm.wa{background:#198745}
+.cm.wa svg{width:11px;height:11px;stroke-width:2}
+.srcchip{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--ink-2);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px 2px 3px;
+}
+.inbox{display:grid;gap:11px}
+.inrow{
+  display:grid;grid-template-columns:128px minmax(0,1fr) auto;gap:16px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:13px;box-shadow:var(--sh-1);
+}
+.inrow.flag{border-left:3px solid var(--warn)}
+.inrow .th{aspect-ratio:4/3;border-radius:var(--r-md);position:relative;overflow:hidden;flex:0 0 auto}
+.inrow .th .res{position:absolute;right:5px;bottom:5px}
+.inrow .meta{min-width:0}
+.inrow .m1{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.inrow h4{margin:0 0 5px;font-size:16px;line-height:1.3}
+.inrow .ask{font-size:12.5px;color:var(--ink-3);margin:0 0 8px}
+.inrow .ops{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+@media (max-width:860px){
+  .inrow{grid-template-columns:96px minmax(0,1fr)}
+  .inrow .ops{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+}
+.res{
+  font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  background:rgba(12,20,15,.62);color:#fff;padding:2px 6px;border-radius:999px;backdrop-filter:blur(3px);
+}
+.res.orig{background:rgba(28,86,56,.85)}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:14px}
+.mcard{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;
+  box-shadow:var(--sh-1);cursor:pointer;display:flex;flex-direction:column;
+  transition:box-shadow .14s,transform .14s,border-color .14s;
+}
+.mcard:hover{box-shadow:var(--sh-2);transform:translateY(-2px);border-color:var(--line-2)}
+.mcard .th{aspect-ratio:1;position:relative;display:flex;align-items:flex-start;justify-content:space-between;padding:7px}
+.mcard .th .res{position:absolute;right:6px;bottom:6px}
+.mcard .bd{padding:9px 10px 10px;display:flex;flex-direction:column;gap:6px;flex:1}
+.mcard .pj{font-size:12.5px;font-weight:600;line-height:1.3}
+.mcard .wh{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4)}
+.tagrow{display:flex;gap:4px;flex-wrap:wrap}
+.tg{
+  font-size:10px;font-weight:600;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:var(--r-xs);padding:1px 5px;white-space:nowrap;
+}
+.sugg{
+  margin-top:auto;padding-top:8px;border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--pine);
+}
+.sugg.none{color:var(--ink-4);font-weight:500}
+
+/* ============ kanalen ============ */
+.chrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line)}
+.chrow:last-child{border-bottom:0}
+.chrow .c1{display:block;font-size:13.5px;font-weight:600;line-height:1.3}
+.chrow .c2{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px;line-height:1.4}
+.chrow.off .c1{color:var(--ink-4)}
+.dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto;display:inline-block}
+.dot.on{background:var(--ok);box-shadow:0 0 0 3px var(--ok-soft)}
+.dot.no{background:var(--line-2)}
+.allow{width:100%;border-collapse:collapse;font-size:13px}
+.allow th{
+  text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-4);padding:8px 15px;border-bottom:1px solid var(--line);background:var(--surface-2);
+}
+.allow td{padding:10px 15px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:middle}
+.allow tr:last-child td{border-bottom:0}
+.allow .who{font-weight:600;color:var(--ink)}
+.allow .num{font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--ink-3)}
+.inbox-addr{
+  display:flex;align-items:center;gap:10px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:9px 12px;font-size:13px;font-variant-numeric:tabular-nums;
+}
+.inbox-addr code{font-family:inherit;color:var(--ink);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 /* ============ tabs ============ */
 .tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);padding:0 24px;background:var(--surface);overflow-x:auto;scrollbar-width:none}
@@ -576,7 +671,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="clay"]{
   --ground:#F4F1EC;  --surface:#FFFFFF;  --surface-2:#FAF7F2;  --surface-3:#F0EBE2;
   --line:#E5DED3;  --line-2:#CBBFAE;  --ink:#1E1813;  --ink-2:#4F463C;
-  --ink-3:#766B5E;  --ink-4:#7E7466;  --accent:#9C4A24;  --accent-2:#B25A31;
+  --ink-3:#6C6256;  --ink-4:#71685C;  --accent:#9C4A24;  --accent-2:#B25A31;
   --accent-soft:#F7E9E0;  --accent-line:#E4C4B0;  --on-accent:#FFFFFF;  --signal:#3D6B4E;
   --signal-soft:#E6EFE7;  --signal-line:#BFD6C6;  --ok:#2C6641;  --ok-soft:#E2EEE6;
   --warn:#8A3A3A;  --warn-soft:#F7E4E4;  --on-ok:#FFFFFF;
@@ -585,7 +680,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
   :root[data-accent="clay"]:not([data-theme="light"]){
     --ground:#131010;    --surface:#1B1716;    --surface-2:#221D1B;    --surface-3:#292320;
     --line:#322A26;    --line-2:#4C4139;    --ink:#EDE7E0;    --ink-2:#B8ACA0;
-    --ink-3:#93897E;    --ink-4:#8C8071;    --accent:#D98A5F;    --accent-2:#E39C74;
+    --ink-3:#9A9187;    --ink-4:#968A7C;    --accent:#D98A5F;    --accent-2:#E39C74;
     --accent-soft:#2C1D14;    --accent-line:#4C3222;    --on-accent:#17110C;    --signal:#7FB894;
     --signal-soft:#17251C;    --signal-line:#2C4335;    --ok:#7FB894;    --ok-soft:#17251C;
     --warn:#D98080;    --warn-soft:#2A1717;    --on-ok:#0F1711;
@@ -594,7 +689,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="clay"][data-theme="dark"]{
   --ground:#131010;  --surface:#1B1716;  --surface-2:#221D1B;  --surface-3:#292320;
   --line:#322A26;  --line-2:#4C4139;  --ink:#EDE7E0;  --ink-2:#B8ACA0;
-  --ink-3:#93897E;  --ink-4:#8C8071;  --accent:#D98A5F;  --accent-2:#E39C74;
+  --ink-3:#9A9187;  --ink-4:#968A7C;  --accent:#D98A5F;  --accent-2:#E39C74;
   --accent-soft:#2C1D14;  --accent-line:#4C3222;  --on-accent:#17110C;  --signal:#7FB894;
   --signal-soft:#17251C;  --signal-line:#2C4335;  --ok:#7FB894;  --ok-soft:#17251C;
   --warn:#D98080;  --warn-soft:#2A1717;  --on-ok:#0F1711;
@@ -602,16 +697,16 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="cobalt"]{
   --ground:#F1F4F9;  --surface:#FFFFFF;  --surface-2:#F7F9FC;  --surface-3:#EAEFF7;
   --line:#DFE5EF;  --line-2:#C0CADB;  --ink:#0E1420;  --ink-2:#414E63;
-  --ink-3:#626E80;  --ink-4:#66768F;  --accent:#1F4FD8;  --accent-2:#2E60E8;
+  --ink-3:#5B6777;  --ink-4:#5E6C84;  --accent:#1F4FD8;  --accent-2:#2E60E8;
   --accent-soft:#E4EBFC;  --accent-line:#BACCF6;  --on-accent:#FFFFFF;  --signal:#A0640B;
-  --signal-soft:#FBF0DC;  --signal-line:#EDD3A0;  --ok:#10714A;  --ok-soft:#DFF0E7;
+  --signal-soft:#FDF7EC;  --signal-line:#EDD3A0;  --ok:#10714A;  --ok-soft:#DFF0E7;
   --warn:#AB3729;  --warn-soft:#FBE7E4;  --on-ok:#FFFFFF;
 }
 @media (prefers-color-scheme:dark){
   :root[data-accent="cobalt"]:not([data-theme="light"]){
     --ground:#0B0E14;    --surface:#141922;    --surface-2:#1A2029;    --surface-3:#212936;
     --line:#262E3B;    --line-2:#3C465A;    --ink:#E6EAF2;    --ink-2:#A9B3C4;
-    --ink-3:#828C9C;    --ink-4:#798392;    --accent:#7FA0F5;    --accent-2:#97B2F8;
+    --ink-3:#8F98A6;    --ink-4:#88919E;    --accent:#7FA0F5;    --accent-2:#97B2F8;
     --accent-soft:#16203A;    --accent-line:#2A3A63;    --on-accent:#0A0E16;    --signal:#E0AE62;
     --signal-soft:#2C2417;    --signal-line:#4A3B21;    --ok:#6FC198;    --ok-soft:#122519;
     --warn:#E08A80;    --warn-soft:#2A1614;    --on-ok:#0A1610;
@@ -620,7 +715,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="cobalt"][data-theme="dark"]{
   --ground:#0B0E14;  --surface:#141922;  --surface-2:#1A2029;  --surface-3:#212936;
   --line:#262E3B;  --line-2:#3C465A;  --ink:#E6EAF2;  --ink-2:#A9B3C4;
-  --ink-3:#828C9C;  --ink-4:#798392;  --accent:#7FA0F5;  --accent-2:#97B2F8;
+  --ink-3:#8F98A6;  --ink-4:#88919E;  --accent:#7FA0F5;  --accent-2:#97B2F8;
   --accent-soft:#16203A;  --accent-line:#2A3A63;  --on-accent:#0A0E16;  --signal:#E0AE62;
   --signal-soft:#2C2417;  --signal-line:#4A3B21;  --ok:#6FC198;  --ok-soft:#122519;
   --warn:#E08A80;  --warn-soft:#2A1614;  --on-ok:#0A1610;
@@ -628,16 +723,16 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="ink"]{
   --ground:#F2F2F0;  --surface:#FFFFFF;  --surface-2:#F7F7F5;  --surface-3:#ECECE9;
   --line:#E2E2DE;  --line-2:#C4C4BE;  --ink:#131313;  --ink-2:#474745;
-  --ink-3:#6D6D68;  --ink-4:#76766D;  --accent:#1C1C1A;  --accent-2:#333331;
+  --ink-3:#646460;  --ink-4:#6A6A61;  --accent:#1C1C1A;  --accent-2:#333331;
   --accent-soft:#EAEAE6;  --accent-line:#C4C4BD;  --on-accent:#FAFAF7;  --signal:#96661E;
-  --signal-soft:#F6EEDD;  --signal-line:#DFC79B;  --ok:#2C6641;  --ok-soft:#E3EDE6;
+  --signal-soft:#F9F4E9;  --signal-line:#DFC79B;  --ok:#2C6641;  --ok-soft:#E3EDE6;
   --warn:#8C4A2F;  --warn-soft:#F6E9E3;  --on-ok:#FFFFFF;
 }
 @media (prefers-color-scheme:dark){
   :root[data-accent="ink"]:not([data-theme="light"]){
     --ground:#0D0D0C;    --surface:#171716;    --surface-2:#1E1E1C;    --surface-3:#252523;
     --line:#2C2C29;    --line-2:#444440;    --ink:#EDEDEA;    --ink-2:#AFAFA9;
-    --ink-3:#8A8A85;    --ink-4:#81817A;    --accent:#E8E8E2;    --accent-2:#FFFFFA;
+    --ink-3:#93938F;    --ink-4:#8D8D86;    --accent:#E8E8E2;    --accent-2:#FFFFFA;
     --accent-soft:#232321;    --accent-line:#3C3C38;    --on-accent:#121211;    --signal:#D6A45E;
     --signal-soft:#2C2418;    --signal-line:#4A3B21;    --ok:#79B48F;    --ok-soft:#18251D;
     --warn:#CB8A70;    --warn-soft:#2A1D17;    --on-ok:#0F1711;
@@ -646,7 +741,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="ink"][data-theme="dark"]{
   --ground:#0D0D0C;  --surface:#171716;  --surface-2:#1E1E1C;  --surface-3:#252523;
   --line:#2C2C29;  --line-2:#444440;  --ink:#EDEDEA;  --ink-2:#AFAFA9;
-  --ink-3:#8A8A85;  --ink-4:#81817A;  --accent:#E8E8E2;  --accent-2:#FFFFFA;
+  --ink-3:#93938F;  --ink-4:#8D8D86;  --accent:#E8E8E2;  --accent-2:#FFFFFA;
   --accent-soft:#232321;  --accent-line:#3C3C38;  --on-accent:#121211;  --signal:#D6A45E;
   --signal-soft:#2C2418;  --signal-line:#4A3B21;  --ok:#79B48F;  --ok-soft:#18251D;
   --warn:#CB8A70;  --warn-soft:#2A1D17;  --on-ok:#0F1711;
@@ -654,7 +749,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="plum"]{
   --ground:#F5F2F5;  --surface:#FFFFFF;  --surface-2:#FAF7FA;  --surface-3:#EFE9EF;
   --line:#E6DEE6;  --line-2:#CBBCCB;  --ink:#1A1218;  --ink-2:#4C3F49;
-  --ink-3:#776973;  --ink-4:#80717C;  --accent:#5B2A50;  --accent-2:#713963;
+  --ink-3:#6D6069;  --ink-4:#73656F;  --accent:#5B2A50;  --accent-2:#713963;
   --accent-soft:#F1E6EF;  --accent-line:#D9C1D3;  --on-accent:#FFFFFF;  --signal:#9E5330;
   --signal-soft:#F9EBE2;  --signal-line:#E8C8B4;  --ok:#2C6641;  --ok-soft:#E2EEE6;
   --warn:#9C2F4C;  --warn-soft:#F9E4EA;  --on-ok:#FFFFFF;
@@ -663,7 +758,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
   :root[data-accent="plum"]:not([data-theme="light"]){
     --ground:#120E11;    --surface:#1A151A;    --surface-2:#211B20;    --surface-3:#282127;
     --line:#2F262E;    --line-2:#493C46;    --ink:#EDE6EC;    --ink-2:#B7A8B3;
-    --ink-3:#928690;    --ink-4:#8A7D86;    --accent:#C79BBD;    --accent-2:#D6AFCD;
+    --ink-3:#998E97;    --ink-4:#948890;    --accent:#C79BBD;    --accent-2:#D6AFCD;
     --accent-soft:#271A24;    --accent-line:#43303D;    --on-accent:#150E13;    --signal:#DFA075;
     --signal-soft:#2B1F17;    --signal-line:#4A3524;    --ok:#7FB894;    --ok-soft:#17251C;
     --warn:#D98098;    --warn-soft:#2A1620;    --on-ok:#0F1711;
@@ -672,7 +767,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 :root[data-accent="plum"][data-theme="dark"]{
   --ground:#120E11;  --surface:#1A151A;  --surface-2:#211B20;  --surface-3:#282127;
   --line:#2F262E;  --line-2:#493C46;  --ink:#EDE6EC;  --ink-2:#B7A8B3;
-  --ink-3:#928690;  --ink-4:#8A7D86;  --accent:#C79BBD;  --accent-2:#D6AFCD;
+  --ink-3:#998E97;  --ink-4:#948890;  --accent:#C79BBD;  --accent-2:#D6AFCD;
   --accent-soft:#271A24;  --accent-line:#43303D;  --on-accent:#150E13;  --signal:#DFA075;
   --signal-soft:#2B1F17;  --signal-line:#4A3524;  --ok:#7FB894;  --ok-soft:#17251C;
   --warn:#D98098;  --warn-soft:#2A1620;  --on-ok:#0F1711;
@@ -759,6 +854,10 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M6.4 17.6 5 19"/></symbol>
 <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></symbol>
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.6 3H20v7.4l-9.3 9.3a2 2 0 0 1-2.8 0l-4.6-4.6a2 2 0 0 1 0-2.8z"/><circle cx="16.4" cy="7.6" r="1.3"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4.5 21 19.5H3z"/><path d="M12 10v4M12 17h.01"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 5.5h3M11 18.5h2"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9L17.5 7"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
 </defs></svg>
 
@@ -771,6 +870,8 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
     <button data-go="kalender"><span class="n">04</span> Kalender</button>
     <button data-go="bibliotheek"><span class="n">05</span> Bibliotheek</button>
     <button data-go="merkbrein"><span class="n">06</span> Merkbrein</button>
+    <button data-go="media"><span class="n">07</span> Media</button>
+    <button data-go="kanalen"><span class="n">08</span> Kanalen</button>
   </nav>
 </div>
 
@@ -804,7 +905,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
         <div class="sep"></div>
         <div class="mh">Of</div>
         <button data-go="kalender"><svg class="ic sm"><use href="#i-idea"/></svg> Kies uit Idee&euml;n</button>
-        <button data-go="bibliotheek"><svg class="ic sm"><use href="#i-upload"/></svg> Bestand uploaden</button>
+        <button data-go="media"><svg class="ic sm"><use href="#i-upload"/></svg> Foto uploaden</button>
       </div>
     </div>
 
@@ -828,8 +929,8 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
     <div class="navgrp">Merk</div>
     <nav class="nav">
       <a data-go="merkbrein" data-nav="merkbrein"><svg class="ic"><use href="#i-brand"/></svg> Merkbrein</a>
-      <a data-go="bibliotheek"><svg class="ic"><use href="#i-media"/></svg> Media</a>
-      <a data-go="merkbrein"><svg class="ic"><use href="#i-channels"/></svg> Kanalen</a>
+      <a data-go="media" data-nav="media"><svg class="ic"><use href="#i-media"/></svg> Media <span class="ct">3</span></a>
+      <a data-go="kanalen" data-nav="kanalen"><svg class="ic"><use href="#i-channels"/></svg> Kanalen</a>
     </nav>
 
     <div class="navgrp">Meten</div>
@@ -1155,7 +1256,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
             </div>
             <div class="pnl-b">
               <div style="display:grid;gap:7px">
-                <button class="btn blk"><svg class="ic sm"><use href="#i-media"/></svg> Kies uit Media</button>
+                <button class="btn blk" data-go="media"><svg class="ic sm"><use href="#i-media"/></svg> Kies uit Media</button>
                 <button class="btn blk"><svg class="ic sm"><use href="#i-upload"/></svg> Uploaden</button>
                 <button class="btn blk"><svg class="ic sm"><use href="#i-tmpl"/></svg> Op een template zetten</button>
                 <button class="btn blk gho" style="border:1px dashed var(--line-2)"><svg class="ic sm"><use href="#i-spark"/></svg> Achtergrond genereren</button>
@@ -1282,7 +1383,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
                     <span class="tag" style="font-size:9px">Advertentie</span>
                     <span style="font-size:12px;color:var(--ink-2)">verhaeghetuinen.be</span>
                   </div>
-                  <div style="font-size:17px;color:#1a58c4;line-height:1.3;margin-bottom:3px">Hemelwaterregels 2027 | Terras plannen? Doe het juist</div>
+                  <div style="font-size:17px;color:var(--serp-link);line-height:1.3;margin-bottom:3px">Hemelwaterregels 2027 | Terras plannen? Doe het juist</div>
                   <div style="font-size:13px;color:var(--ink-2);line-height:1.5">Nieuwe regels vanaf januari. Wij ontwerpen meteen conform. Prijsvoorstel binnen 48u.</div>
                 </div>
               </div>
@@ -1776,11 +1877,336 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
                     </div>
                   </div>
                   <span class="prov">38 beelden &middot; 12 gebruikt in content</span>
+                  <div style="margin-top:12px"><button class="btn sm" data-go="media"><svg class="ic sm"><use href="#i-media"/></svg> Alle 412 beelden in Media</button></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 07 MEDIA ========== -->
+  <section class="scr" id="scr-media" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">Media</h1>
+        <div class="sub">412 beelden &middot; 3 wachten op een project</div>
+      </div>
+      <div class="acts">
+        <button class="btn"><svg class="ic sm"><use href="#i-upload"/></svg> Uploaden</button>
+        <button class="btn" data-go="kanalen"><svg class="ic sm"><use href="#i-channels"/></svg> Aanvoer instellen</button>
+        <button class="btn pri" data-go="nieuw"><svg class="ic sm"><use href="#i-plus"/></svg> Maak er een post van</button>
+      </div>
+    </div>
+
+    <div class="filterbar">
+      <span class="fl">Bron</span>
+      <button class="chip" aria-pressed="true">Alles</button>
+      <button class="chip"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span> WhatsApp</button>
+      <button class="chip"><span class="cm ml"><svg class="ic" style="width:10px;height:10px"><use href="#i-mail"/></svg></span> E-mail</button>
+      <button class="chip">Upload</button>
+      <span class="div"></span>
+      <span class="fl">Label</span>
+      <button class="chip">Voor-en-na</button>
+      <button class="chip">Afgewerkt project</button>
+      <button class="chip">Plantdetail</button>
+      <button class="chip">Ploeg</button>
+      <span class="div"></span>
+      <button class="chip"><svg class="ic xs"><use href="#i-alert"/></svg> Alleen ongetagd</button>
+    </div>
+
+    <div class="scrollarea">
+      <div class="eyebrow"><b>Nieuw binnengekomen</b> <span class="rule"></span> <span>3 items vragen één tik</span></div>
+
+      <div class="inbox" style="margin-bottom:34px">
+        <article class="inrow">
+          <div class="th ph-f"><span class="res">1600 px</span></div>
+          <div class="meta">
+            <div class="m1">
+              <span class="srcchip"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span> Wouter &middot; +32 474 •• •• 12</span>
+              <span class="tag">vandaag 16:04</span>
+              <span class="tag">Gecomprimeerd</span>
+            </div>
+            <h4 class="srf">Welk project is dit?</h4>
+            <p class="ask">IC ziet: afgewerkt project, terras en borders. Nog geen project gekoppeld.</p>
+            <div class="chips">
+              <button class="chip" aria-pressed="true">Drongen</button>
+              <button class="chip">Sint-Amandsberg</button>
+              <button class="chip">Nieuw project&hellip;</button>
+            </div>
+          </div>
+          <div class="ops">
+            <button class="btn pri" data-toast="Foto toegevoegd aan Drongen — 1 suggestie klaar"><svg class="ic sm"><use href="#i-check"/></svg> Bewaren</button>
+            <button class="btn gho">Negeren</button>
+          </div>
+        </article>
+
+        <article class="inrow flag">
+          <div class="th thumb"><i class="bg ph-h ph-blur"></i><span class="res">1600 px</span></div>
+          <div class="meta">
+            <div class="m1">
+              <span class="srcchip"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span> Sam &middot; +32 486 •• •• 77</span>
+              <span class="tag">vandaag 11:38</span>
+              <span class="tag">Gecomprimeerd</span>
+              <span class="tag warn"><svg class="ic xs"><use href="#i-alert"/></svg> Onscherp</span>
+            </div>
+            <h4 class="srf">Bewaren of weggooien?</h4>
+            <p class="ask">Te onscherp om te publiceren. Bewaar je hem als werkfoto, of laten we hem vallen?</p>
+            <div class="chips">
+              <span class="tg">Machine</span>
+              <span class="tg">Werf</span>
+            </div>
+          </div>
+          <div class="ops">
+            <button class="btn" data-toast="Bewaard als werkfoto — niet voorgesteld voor publicatie">Werkfoto</button>
+            <button class="btn gho"><svg class="ic sm"><use href="#i-trash"/></svg> Weggooien</button>
+          </div>
+        </article>
+
+        <article class="inrow">
+          <div class="th ph-g"><span class="res orig">4032 px</span></div>
+          <div class="meta">
+            <div class="m1">
+              <span class="srcchip"><span class="cm ml"><svg class="ic" style="width:10px;height:10px"><use href="#i-mail"/></svg></span> via fotos@ &middot; Kristof</span>
+              <span class="tag">gisteren 19:12</span>
+              <span class="tag accent">Volledige resolutie</span>
+            </div>
+            <h4 class="srf">Welk project is dit?</h4>
+            <p class="ask">Per e-mail binnengekomen, dus onbewerkt. Bruikbaar voor druk en voor de website.</p>
+            <div class="chips">
+              <button class="chip">Drongen</button>
+              <button class="chip">Sint-Amandsberg</button>
+              <button class="chip">Nieuw project&hellip;</button>
+            </div>
+          </div>
+          <div class="ops">
+            <button class="btn pri" data-toast="Foto toegevoegd"><svg class="ic sm"><use href="#i-check"/></svg> Bewaren</button>
+            <button class="btn gho">Negeren</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="eyebrow"><b>Bibliotheek</b> <span class="rule"></span> <span>gesorteerd op nieuwste</span></div>
+
+      <div class="mgrid">
+        <article class="mcard">
+          <div class="th ph-a"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Drongen &middot; na</div>
+            <div class="tagrow"><span class="tg">Voor-en-na</span><span class="tg">Afgewerkt</span></div>
+            <div class="wh">Wouter &middot; 3 sep</div>
+            <div class="sugg"><svg class="ic xs"><use href="#i-spark"/></svg> Leverde 2 suggesties op</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-b"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Drongen &middot; voor</div>
+            <div class="tagrow"><span class="tg">Voor-en-na</span></div>
+            <div class="wh">Wouter &middot; 3 sep</div>
+            <div class="sugg"><svg class="ic xs"><use href="#i-spark"/></svg> Leverde 2 suggesties op</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-e"><span class="cm ml"><svg class="ic" style="width:10px;height:10px"><use href="#i-mail"/></svg></span><span class="res orig">4032 px</span></div>
+          <div class="bd">
+            <div class="pj">Sint-Amandsberg &middot; oplevering</div>
+            <div class="tagrow"><span class="tg">Afgewerkt</span><span class="tg">Website</span></div>
+            <div class="wh">Kristof &middot; 28 aug</div>
+            <div class="sugg"><svg class="ic xs"><use href="#i-spark"/></svg> Leverde 1 suggestie op</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-f"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Ploeg 2 aan het werk</div>
+            <div class="tagrow"><span class="tg">Ploeg</span></div>
+            <div class="wh">Sam &middot; 26 aug</div>
+            <div class="sugg none">Nog niet gebruikt</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-c"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Hagen Melle</div>
+            <div class="tagrow"><span class="tg">Afgewerkt</span></div>
+            <div class="wh">Wouter &middot; 21 aug</div>
+            <div class="sugg"><svg class="ic xs"><use href="#i-spark"/></svg> Leverde 1 suggestie op</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-d"><span class="og">Upload</span><span class="res orig">3200 px</span></div>
+          <div class="bd">
+            <div class="pj">Fotoset lente 2026</div>
+            <div class="tagrow"><span class="tg">38 beelden</span></div>
+            <div class="wh">Kristof &middot; 14 apr</div>
+            <div class="sugg none">12 gebruikt</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-g"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Verzonken terras</div>
+            <div class="tagrow"><span class="tg">Plantdetail</span></div>
+            <div class="wh">Wouter &middot; 9 aug</div>
+            <div class="sugg none">Nog niet gebruikt</div>
+          </div>
+        </article>
+
+        <article class="mcard">
+          <div class="th ph-h"><span class="cm wa"><svg class="ic"><use href="#i-chat"/></svg></span><span class="res">1600 px</span></div>
+          <div class="bd">
+            <div class="pj">Nieuwe bestelwagen</div>
+            <div class="tagrow"><span class="tg">Machine</span></div>
+            <div class="wh">Sam &middot; 2 aug</div>
+            <div class="sugg none">Nog niet gebruikt</div>
+          </div>
+        </article>
+      </div>
+
+      <p class="note" style="margin-top:18px;max-width:74ch">Beeld dat via WhatsApp binnenkomt is door WhatsApp gecomprimeerd naar ongeveer 1600 px &mdash; genoeg voor social, te weinig voor druk of een grote website-afbeelding. Wie <b style="color:var(--ink)">&ldquo;stuur als document&rdquo;</b> gebruikt of het per e-mail stuurt, houdt het origineel.</p>
+    </div>
+  </section>
+
+  <!-- ========== 08 KANALEN ========== -->
+  <section class="scr" id="scr-kanalen" hidden>
+    <div class="topbar">
+      <div class="tt">
+        <h1 class="srf">Kanalen</h1>
+        <div class="sub">Waar IC publiceert, en waar beeld binnenkomt</div>
+      </div>
+      <div class="acts">
+        <button class="btn pri" data-toast="Instellingen bewaard"><svg class="ic sm"><use href="#i-check"/></svg> Bewaren</button>
+      </div>
+    </div>
+
+    <div class="scrollarea">
+      <div class="cols">
+        <div>
+          <div class="eyebrow"><b>Publiceren</b> <span class="rule"></span> <span>IC plaatst hier zelf</span></div>
+          <div class="pnl" style="margin-bottom:22px">
+            <div class="chrow">
+              <span class="cm fb lg">f</span>
+              <span><span class="c1">Facebook &mdash; Verhaeghe Tuinen</span><span class="c2">1.204 volgers &middot; verbonden sinds 14 aug</span></span>
+              <span style="display:flex;align-items:center;gap:8px"><i class="dot on"></i><button class="btn sm gho">Beheren</button></span>
+            </div>
+            <div class="chrow">
+              <span class="cm ig lg">IG</span>
+              <span><span class="c1">Instagram &mdash; @verhaeghetuinen</span><span class="c2">862 volgers &middot; verbonden sinds 14 aug</span></span>
+              <span style="display:flex;align-items:center;gap:8px"><i class="dot on"></i><button class="btn sm gho">Beheren</button></span>
+            </div>
+            <div class="chrow">
+              <span class="cm li lg">in</span>
+              <span><span class="c1">LinkedIn &mdash; Verhaeghe Tuinen</span><span class="c2">142 volgers &middot; verbonden sinds 14 aug</span></span>
+              <span style="display:flex;align-items:center;gap:8px"><i class="dot on"></i><button class="btn sm gho">Beheren</button></span>
+            </div>
+            <div class="chrow">
+              <span class="cm gg lg">G</span>
+              <span><span class="c1">Google Bedrijfsprofiel</span><span class="c2">Nog niet verbonden &mdash; voor een lokaal bedrijf het meest waardevolle kanaal</span></span>
+              <button class="btn">Verbinden</button>
+            </div>
+          </div>
+
+          <div class="eyebrow"><b>Beeldaanvoer</b> <span class="rule"></span> <span>hoe foto's binnenkomen</span></div>
+
+          <div class="pnl" style="margin-bottom:16px">
+            <div class="pnl-h">
+              <span class="cm wa lg"><svg class="ic"><use href="#i-chat"/></svg></span>
+              <h3>WhatsApp</h3>
+              <span class="r"><span class="tag ok"><i class="dot on" style="width:6px;height:6px;box-shadow:none"></i> Actief via Twilio</span></span>
+            </div>
+            <div class="pnl-b">
+              <span class="lbl">Stuur foto's naar</span>
+              <div class="inbox-addr">
+                <svg class="ic sm" style="color:var(--ink-4)"><use href="#i-phone"/></svg>
+                <code>+32 460 22 41 08</code>
+                <button class="btn sm gho" style="margin-left:auto" data-toast="Nummer gekopieerd"><svg class="ic sm"><use href="#i-copy"/></svg></button>
+              </div>
+              <p class="note tight">Laat je ploeg dit nummer opslaan. Foto's die ze sturen komen rechtstreeks in Media terecht.</p>
+            </div>
+            <table class="allow">
+              <tr><th>Toegelaten nummer</th><th style="width:22%">Laatst gestuurd</th><th style="width:16%">Deze maand</th><th style="width:14%"></th></tr>
+              <tr>
+                <td><span class="who">Wouter</span> <span class="num">&middot; +32 474 •• •• 12</span></td>
+                <td>vandaag 16:04</td>
+                <td><b>14</b> foto's</td>
+                <td style="text-align:right"><button class="btn sm gho"><svg class="ic sm"><use href="#i-trash"/></svg></button></td>
+              </tr>
+              <tr>
+                <td><span class="who">Sam</span> <span class="num">&middot; +32 486 •• •• 77</span></td>
+                <td>vandaag 11:38</td>
+                <td><b>9</b> foto's</td>
+                <td style="text-align:right"><button class="btn sm gho"><svg class="ic sm"><use href="#i-trash"/></svg></button></td>
+              </tr>
+              <tr>
+                <td><span class="who">Kristof</span> <span class="num">&middot; +32 495 •• •• 03</span></td>
+                <td>28 aug</td>
+                <td><b>2</b> foto's</td>
+                <td style="text-align:right"><button class="btn sm gho"><svg class="ic sm"><use href="#i-trash"/></svg></button></td>
+              </tr>
+            </table>
+            <div style="padding:12px 15px;border-top:1px dashed var(--line-2)">
+              <button class="btn sm"><svg class="ic sm"><use href="#i-plus"/></svg> Nummer toevoegen</button>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h">
+              <span class="cm ml lg"><svg class="ic" style="width:11px;height:11px"><use href="#i-mail"/></svg></span>
+              <h3>E-mail</h3>
+              <span class="r"><span class="tag ok">Actief</span></span>
+            </div>
+            <div class="pnl-b">
+              <span class="lbl">Stuur foto's naar</span>
+              <div class="inbox-addr">
+                <svg class="ic sm" style="color:var(--ink-4)"><use href="#i-mail"/></svg>
+                <code>fotos.verhaeghetuinen@ic-inbox.be</code>
+                <button class="btn sm gho" style="margin-left:auto" data-toast="Adres gekopieerd"><svg class="ic sm"><use href="#i-copy"/></svg></button>
+              </div>
+              <p class="note tight">Werkt vanaf elke telefoon en elke computer, zonder toegelaten-nummerlijst. Bewaart de volledige resolutie &mdash; de weg voor beeld dat ook op de website of in druk moet.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="rail">
+          <div class="pnl">
+            <div class="pnl-h"><svg class="ic sm"><use href="#i-mail"/></svg><h3>Jouw e-mailtool</h3></div>
+            <div class="pnl-b">
+              <div class="sel" style="cursor:default">
+                <span style="display:flex;align-items:center;gap:8px"><span class="cm ml">M</span> Mailchimp</span>
+                <span class="fase" style="margin-left:auto">Fase 2</span>
+              </div>
+              <p class="note tight">IC maakt de campagne en jij verstuurt ze. Rechtstreeks als concept doorsturen komt in fase 2.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h"><svg class="ic sm"><use href="#i-ads"/></svg><h3>Advertentieaccounts</h3></div>
+            <div class="pnl-b">
+              <div style="display:grid;gap:7px">
+                <div class="sel" style="cursor:default"><span style="display:flex;align-items:center;gap:8px"><span class="cm gg">G</span> Google Ads</span><span class="fase" style="margin-left:auto">Fase 3</span></div>
+                <div class="sel" style="cursor:default"><span style="display:flex;align-items:center;gap:8px"><span class="cm fb">f</span> Meta Ads</span><span class="fase" style="margin-left:auto">Fase 3</span></div>
+              </div>
+              <p class="note tight">In fase 1 exporteer je de campagnebriefing en plaats je ze zelf.</p>
+            </div>
+          </div>
+
+          <div class="pnl">
+            <div class="pnl-h"><svg class="ic sm" style="color:var(--warn)"><use href="#i-lock"/></svg><h3>Privacy</h3></div>
+            <div class="pnl-b">
+              <p class="note">Telefoonnummers van je ploeg zijn persoonsgegevens, en foto's bevatten identificeerbare mensen. Laat je personeel weten dat dit kanaal bestaat en wat er met de beelden gebeurt.</p>
+              <button class="btn blk" style="margin-top:11px">Voorbeeldtekst voor je ploeg</button>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -1806,7 +2232,7 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 
 <script>
 (function(){
-  var scr = {}, order = ['vandaag','nieuw','materiaal','kalender','bibliotheek','merkbrein'];
+  var scr = {}, order = ['vandaag','nieuw','materiaal','kalender','bibliotheek','merkbrein','media','kanalen'];
   order.forEach(function(k){ scr[k] = document.getElementById('scr-'+k); });
 
   function show(key){
@@ -1982,9 +2408,9 @@ svg.ic.xs{width:12px;height:12px;stroke-width:1.9}
 
   // keyboard: 1-6 jump between screens
   document.addEventListener('keydown', function(e){
-    if (e.target.matches('input,textarea')) return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea')) return;
     var n = parseInt(e.key, 10);
-    if (n >= 1 && n <= 6) show(order[n-1]);
+    if (n >= 1 && n <= 8) show(order[n-1]);
   });
 })();
 </script>
